@@ -1,0 +1,310 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(0, 0, 0);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    color: white;
+}
+
+.wrapper-horizontal-1,
+.wrapper-horizontal-2 {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.wrapper-horizontal-1 {
+    width: 200%;
+}
+
+.wrapper-horizontal-2 {
+    width: 200%;
+}
+
+section {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Assurez-vous que les bulles restent dans leur section */
+}
+
+.section1 {
+    background: rgb(0, 0, 0);
+}
+
+.section2 {
+    background: rgb(0, 0, 0);
+}
+
+.section3 {
+    background: rgb(0, 0, 0);
+    position: relative;
+}
+
+.section4 {
+    background: rgb(0, 0, 0);
+    position: relative;
+}
+
+.bubbles-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    /* Assurez-vous que les bulles restent dans leur container */
+}
+
+.bubble-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 5vh;
+}
+
+.bubble-with-text {
+    display: flex;
+    align-items: center;
+    /* Pour éviter que les bulles ne sortent de leur container */
+}
+
+.bubble-with-text.left {
+    justify-content: flex-start;
+    margin-left: 5%;
+}
+
+.bubble-with-text.right {
+    justify-content: flex-end;
+    margin-left: 70%;
+}
+
+.bubble {
+    width: 15vw;
+    height: 15vw;
+    background-image: url("https://files.lenspiration.com/wp-content/uploads/2018/09/28104419/DSC_3640.jpg");
+    background-size: cover;
+    border-radius: 50%;
+    transition: border-radius 1s ease-out;
+}
+
+.bubble-with-text p {
+    margin-left: 2vw;
+    font-size: 1.5vw;
+    color: #ffffff;
+}
+
+.bubble-with-text.inverted p {
+    margin-right: 2vw;
+    margin-left: 0;
+}
+
+
+/* Media queries pour des écrans plus petits */
+
+@media (max-width: 1000px) {
+    .bubble-row {
+        flex-direction: column;
+    }
+    .bubble-with-text.left,
+    .bubble-with-text.right {
+        width: 80%;
+        margin: 10px 0;
+    }
+    .bubble {
+        width: 20vw;
+        height: 20vw;
+    }
+    .bubble-with-text p {
+        font-size: 3vw;
+    }
+    .navbar {
+        font-size: 2vw;
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .bubble-with-text.left,
+    .bubble-with-text.right {
+        width: 100%;
+    }
+    .bubble {
+        width: 40vw;
+        height: 40vw;
+    }
+    .bubble-with-text p {
+        font-size: 4vw;
+    }
+}
+
+@media (max-width: 520px) {
+    .navbar {
+        font-size: 1.5vw;
+        height: 25px;
+    }
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    color: white;
+    height: 50px;
+    padding: 0 20px;
+    border-bottom: 1px solid white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.navbar-left,
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-right a,
+.navbar-left a {
+    margin-left: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.btn-flip {
+    opacity: 1;
+    outline: 0;
+    color: white;
+    line-height: 40px;
+    position: relative;
+    text-align: center;
+    letter-spacing: 1px;
+    display: inline-block;
+    text-decoration: none;
+    font-family: "Open Sans";
+    text-transform: uppercase;
+}
+
+.btn-flip:hover:after {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+}
+
+.btn-flip:hover:before {
+    opacity: 0;
+    transform: translateY(50%) rotateX(90deg);
+}
+
+.btn-flip:after {
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    color: white;
+    display: block;
+    transition: 0.5s;
+    position: absolute;
+    background: transparent;
+    content: attr(data-back);
+    transform: translateY(-50%) rotateX(90deg);
+    font-style: italic;
+}
+
+.btn-flip:before {
+    top: 0;
+    left: 0;
+    opacity: 1;
+    color: white;
+    display: block;
+    padding: 0 30px;
+    line-height: 40px;
+    transition: 0.5s;
+    position: relative;
+    background: transparent;
+    content: attr(data-front);
+    transform: translateY(0) rotateX(0);
+}
+
+:root {
+    --particle-color-1: hsl(200, 100%, 15%);
+    --particle-color-2: hsl(200, 100%, 30%);
+    --particle-color-3: hsl(200, 100%, 45%);
+    --particle-color-4: hsl(200, 100%, 60%);
+    --particle-color-5: hsl(200, 100%, 75%);
+    --scene-background: black
+}
+
+#scene {
+    background: var(--scene-background);
+    height: 100vh;
+    width: 100vw
+}
+
+
+/* CSS timeline */
+
+.timeline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    padding: 50px 0;
+    color: black;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #ffffff;
+    transform: translateY(-50%);
+    z-index: -1;
+}
+
+.timeline-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10vw;
+    height: 10vw;
+    background: white;
+    border-radius: 50%;
+    border: 4px solid #ffffff;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.timeline-item.top {
+    align-self: flex-start;
+    margin-top: -10vw;
+    /* Ajustez selon vos besoins */
+}
+
+.timeline-item.bottom {
+    align-self: flex-end;
+    margin-bottom: -10vw;
+    /* Ajustez selon vos besoins */
+}
+
+.progress-line {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 0;
+    height: 4px;
+    background: green;
+    z-index: 999;
+    /* Assure que la barre est au-dessus du contenu */
+    transition: width 0.3s ease-in-out;
+}
