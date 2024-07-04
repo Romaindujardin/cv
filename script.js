@@ -43,40 +43,9 @@ gsap.to(sectionsHorizontal2, {
 });
 
 // Animation de la timeline
-let timelineItems = gsap.utils.toArray('.timeline-item');
-let progressLine = document.createElement('div');
-progressLine.classList.add('progress-line');
-document.body.appendChild(progressLine);
 
-timelineItems.forEach((item, index) => {
-    gsap.fromTo(item, { opacity: 0, y: 50 }, {
-        opacity: 1,
-        y: 0,
-        scrollTrigger: {
-            trigger: item,
-            start: 'top 80%',
-            end: 'bottom 20%',
-            scrub: 0.5,
-            onUpdate: (self) => {
-                const scrollProgress = self.progress;
-                const screenWidth = window.innerWidth;
-                const scrollWidth = screenWidth * scrollProgress;
-                gsap.set(progressLine, { width: `${scrollWidth}px` });
-            }
-        }
-    });
-});
 
-// Événement de redimensionnement de la fenêtre pour ajuster la largeur de la barre de progression
-window.addEventListener('resize', () => {
-    const scrollTrigger = ScrollTrigger.getById('timelineTrigger');
-    if (scrollTrigger) {
-        const scrollProgress = scrollTrigger.progress;
-        const screenWidth = window.innerWidth;
-        const scrollWidth = screenWidth * scrollProgress - 100;
-        gsap.set(progressLine, { width: `${scrollWidth}px` });
-    }
-});
+
 
 
 
