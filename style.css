@@ -87,10 +87,25 @@ section {
 .bubble {
     width: 15vw;
     height: 15vw;
-    background-image: url("https://files.lenspiration.com/wp-content/uploads/2018/09/28104419/DSC_3640.jpg");
     background-size: cover;
     border-radius: 50%;
     transition: border-radius 1s ease-out;
+}
+
+.bubble.valise {
+    background-image: url("valise1.jpeg");
+}
+
+.bubble.dispo {
+    background-image: url("Dispo1.jpg");
+}
+
+.bubble.flipper {
+    background-image: url("flipper1.jpg");
+}
+
+.bubble.site {
+    background-image: url("site1.png");
 }
 
 .bubble-with-text p {
