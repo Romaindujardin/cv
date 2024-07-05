@@ -43,8 +43,34 @@ gsap.to(sectionsHorizontal2, {
 });
 
 // Animation de la timeline
+document.addEventListener("DOMContentLoaded", function() {
+    let options = {
+        threshold: 0.5
+    };
 
+    let observer = new IntersectionObserver(function(entries, observer) {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                let delay = index * 600; // Délai entre les apparitions des items
 
+                // Ajouter un délai supplémentaire pour les items de la deuxième section
+                if (entry.target.parentElement.parentElement.classList.contains('section6')) {
+                    delay += 1000; // Par exemple, 1000ms de plus
+                }
+
+                setTimeout(() => {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target);
+                }, delay);
+            }
+        });
+    }, options);
+
+    let items = document.querySelectorAll(".timeline-item");
+    items.forEach(item => {
+        observer.observe(item);
+    });
+});
 
 
 
