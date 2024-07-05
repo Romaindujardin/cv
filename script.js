@@ -80,7 +80,8 @@ function getCssVar(v) {
 }
 
 let text404 = 'Romain';
-let textSubtitle = 'Ingénieur IA - ISEN'; // Texte supplémentaire
+let textSubtitle = 'Étudiant Ingénieur IA '; // Texte supplémentaire
+let textTest = 'JUNIA Isen'; // Nouveau texte
 let canvas = document.getElementById('scene');
 let ch = canvas.height = canvas.getBoundingClientRect().height;
 let cw = canvas.width = canvas.getBoundingClientRect().width;
@@ -141,14 +142,16 @@ Particle.prototype.render = function(isDisableMouse) {
 }
 
 function onmouseCoordMove(e) {
-    mouseCoord.x = e.clientX;
-    mouseCoord.y = e.clientY;
+    let rect = canvas.getBoundingClientRect();
+    mouseCoord.x = e.clientX - rect.left;
+    mouseCoord.y = e.clientY - rect.top;
 }
 
 function onTouchMove(e) {
     if (e.touches.length > 0) {
-        mouseCoord.x = e.touches[0].clientX;
-        mouseCoord.y = e.touches[0].clientY;
+        let rect = canvas.getBoundingClientRect();
+        mouseCoord.x = e.touches[0].clientX - rect.left;
+        mouseCoord.y = e.touches[0].clientY - rect.top;
     }
 }
 
@@ -161,13 +164,18 @@ function initScene() {
     ch = canvas.height = canvas.getBoundingClientRect().height;
     cw = canvas.width = canvas.getBoundingClientRect().width;
     context.clearRect(0, 0, canvas.width, canvas.height);
-    context.font = 'bold ' + (cw / 6) + 'px sans-serif';
+    context.font = 'bold ' + (cw / 8) + 'px sans-serif';
     context.fillStyle = sceneBackground;
     context.textAlign = 'center';
     context.fillText(text404, cw / 2, ch / 2);
+
     // Ajouter le texte supplémentaire
-    context.font = (cw / 10) + 'px sans-serif';
+    context.font = (cw / 11) + 'px sans-serif';
     context.fillText(textSubtitle, cw / 2, ch / 2 + cw / 10 + 20);
+
+    // Ajouter le nouveau texte "test"
+    context.font = (cw / 11) + 'px sans-serif';
+    context.fillText(textTest, cw / 2, ch / 2 + cw / 5 + 40);
 
     let imageData = context.getImageData(0, 0, cw, ch).data;
     context.clearRect(0, 0, canvas.width, canvas.height);
@@ -186,11 +194,11 @@ function initScene() {
 function renderScene() {
     context.clearRect(0, 0, canvas.width, canvas.height);
     let isDisableMouse = false;
-    if ((previousMouseCoord.x === mouseCoord.x) && (previousMouseCoord.x === mouseCoord.x)) {
+    if ((previousMouseCoord.x === mouseCoord.x) && (previousMouseCoord.y === mouseCoord.y)) {
         isDisableMouse = true;
     } else {
         previousMouseCoord.x = mouseCoord.x;
-        previousMouseCoord.x = mouseCoord.x;
+        previousMouseCoord.y = mouseCoord.y;
         isDisableMouse = false;
     }
     for (let i = 0; i < particlesCount; i++) {
@@ -214,4 +222,28 @@ document.addEventListener('DOMContentLoaded', function() {
             sceneResize = true;
         }
     });
+});
+
+
+// animation derniere page
+document.addEventListener('DOMContentLoaded', () => {
+    const interBubble = document.querySelector('.interactive');
+    let curX = 0;
+    let curY = 0;
+    let tgX = 0;
+    let tgY = 0;
+
+    const move = () => {
+        curX += (tgX - curX) / 20;
+        curY += (tgY - curY) / 20;
+        interBubble.style.transform = `translate(${Math.round(curX)}px, ${Math.round(curY)}px)`;
+        requestAnimationFrame(move);
+    };
+
+    window.addEventListener('mousemove', event => {
+        tgX = event.clientX;
+        tgY = event.clientY;
+    });
+
+    move();
 });
