@@ -20,14 +20,42 @@
                     <a href="#" class="btn-flip" data-back="ROMAIN" data-front="ROMAIN"></a>
                 </div>
                 <div class="navbar-right">
+                    <a href="#formation" class="btn-flip" data-back="Formation" data-front="Formation"></a>
                     <a href="#mes_project" class="btn-flip" data-back="Project" data-front="Project"></a>
-                    <a href="#experience" class="btn-flip" data-back="Experience" data-front="Experience"></a>
+                    <a href="#experience" class="btn-flip" data-back="Experiences" data-front="Experiences"></a>
                     <a href="#contact" class="btn-flip" data-back="Contact" data-front="Contact"></a>
                 </div>
             </div>
         </section>
-        <section class="panel section2">
-            <h1>MES PROJETS</h1>
+
+        <section class="panel section2" id="section2">
+            <div style="color:white;" id="loadingText">Mes études</div>
+            <div id="menu" class="accordion hidden">
+                <details class="accordion__item" open>
+                    <summary class="accordion__item-btn">Isen JUNIA</summary>
+                    <div class="accordion__item-desc">
+                        2023-Present : Apprentissage plus profond des matières de l'ingénieur, spécialisation en IA et réalisation de projets en groupe.
+                    </div>
+                </details>
+                <details class="accordion__item">
+                    <summary class="accordion__item-btn">Prepa ADIMAKER</summary>
+                    <div class="accordion__item-desc">
+                        2020-2023 : Classe préparatoire intégrée à l'ISEN JUNIA, réalisation de plusieurs projets en groupe avec des clients et enseignements des matieres de base de l'ingénieur.
+                    </div>
+                </details>
+                <details class="accordion__item">
+                    <summary class="accordion__item-btn">Lycée Gustave Eiffel</summary>
+                    <div class="accordion__item-desc">
+                        Baccalauréat STI2D (sciences et technologies de l'industrie et dudéveloppement durable). Bac mention BIEN
+                    </div>
+                </details>
+                <details class="accordion__item">
+                    <summary class="accordion__item-btn">Collège Philippe de commynes</summary>
+                    <div class="accordion__item-desc">
+                        Cursus scolaire classique, obtention du brevet des collèges et obtention du PSC1
+                    </div>
+                </details>
+            </div>
         </section>
     </div>
 
@@ -39,6 +67,7 @@
                 <div class="bubble-with-text left">
                     <div class="bubble dispo"></div>
                     <p>Dispo - Pas Dispo</p>
+
                 </div>
             </div>
             <div class="bubble-row">
@@ -55,7 +84,7 @@
             <div class="bubble-row">
                 <div class="bubble-with-text left">
                     <div class="bubble flipper"></div>
-                    <p>Flipper Numérique</p>
+                    <p>Ambilight via PCB</p>
                 </div>
             </div>
             <div class="bubble-row">
@@ -67,9 +96,11 @@
         </div>
     </section>
 
+
     <div class="wrapper-horizontal-2" id="experience">
-        <section class="panel section5">
-            <div class="timeline">
+        <section class="panel section5" id="section5">
+            <div style="color:white;" id="loadingText1">Mon expérience</div>
+            <div class="timeline hidden" id="timeline">
                 <div class="timeline-item top">
                     <div class="direction-h">
                         <div class="flag-wrapper">
@@ -138,51 +169,13 @@
             </div>
         </section>
         <section class="panel section7" id="contact">
-            <div class="card">
-                <svg viewBox="0 0 100% 100%" xmlns='http://www.w3.org/2000/svg' class="noise">
-              <filter id='noiseFilter'>
-                <feTurbulence 
-                              type='fractalNoise' 
-                              baseFrequency='0.85' 
-                              numOctaves='6' 
-                              stitchTiles='stitch' />
-              </filter>
-              <rect
-                    width='100%'
-                    height='100%'
-                    preserveAspectRatio="xMidYMid meet"
-                    filter='url(#noiseFilter)' />
-            </svg>
-                <div class="content">
-                    <h1>Me contacter</h1>
-                    <p><button type="button" onclick="window.location.href='/Users/romain/Downloads/cv_final/CV definitif.pdf';">Cliquez ici</button></p>
-                </div>
-            </div>
-            <div class="gradient-bg">
-                <svg viewBox="0 0 100vw 100vw" xmlns='http://www.w3.org/2000/svg' class="noiseBg">
-              <filter id='noiseFilterBg'>
-                <feTurbulence 
-                              type='fractalNoise'
-                              baseFrequency='0.6'
-                              stitchTiles='stitch' />
-              </filter>
-              <rect
-                    width='100%'
-                    height='100%'
-                    preserveAspectRatio="xMidYMid meet"
-                    filter='url(#noiseFilterBg)' />
-            </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" class="svgBlur">
-              <defs>
-                <filter id="goo">
-                  <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
-                  <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
-                  <feBlend in="SourceGraphic" in2="goo" />
-                </filter>
-              </defs>
-            </svg>
-                <div class="gradients-container">
-                    <div class="interactive"></div>
+            <div id="cards">
+                <div class="card">
+                    <div class="card-border"></div>
+                    <div class="card-content">
+                        <p>Contact</p>
+                        <p>Si vous êtes intéressé par mon profil, je suis ouverte à toute discussion ou proposition.</p>
+                        <button onclick="window.open('https://www.google.com')">Visitez Google</button> </div>
                 </div>
             </div>
         </section>
@@ -194,6 +187,7 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js'></script>
     <script src="./script.js"></script>
+
 
 </body>
 
