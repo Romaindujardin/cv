@@ -101,7 +101,7 @@ section {
 }
 
 .bubble.flipper {
-    background-image: url("flipper1.jpg");
+    background-image: url("ambilight.png");
 }
 
 .bubble.site {
@@ -438,169 +438,6 @@ section {
     font-style: normal
 }
 
-html,
-body {
-    height: 100%;
-    width: 100%;
-    background-color: black;
-}
-
-.section2 {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    padding: 4em;
-    filter: contrast(20);
-    background-color: black;
-    overflow: hidden;
-    text-align: center;
-    font-family: hkgrotesk;
-}
-
-.section2 h1 {
-    color: white;
-    font-size: 8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    line-height: 1;
-    filter: blur(0.5rem);
-    animation: letterspacing 10s infinite alternate cubic-bezier(.2, 0, 0, 1);
-    display: block;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate3d(-50%, -50%, 0);
-}
-
-
-/* css derniere page */
-
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
-:root {
-    --color-bg1: rgb(8, 10, 15);
-    /* Fond noir */
-    --color-bg2: rgb(0, 17, 32);
-    /* Fond noir */
-    --color-interactive: 0, 113, 255;
-    /* Bleu */
-    --circle-size: 80%;
-    --blending: hard-light;
-}
-
-.card {
-    position: absolute;
-    z-index: 10;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    user-select: none;
-    max-width: 600px;
-    padding: 48px;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    border-radius: 8px;
-    box-shadow: 0 4px 90px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-}
-
-.card:before {
-    content: "";
-    position: absolute;
-    z-index: 2;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: white;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, white 34%, white 89%, rgba(255, 255, 255, 0) 100%);
-    opacity: 0.3;
-    filter: blur(0.5px);
-    mix-blend-mode: hard-light;
-}
-
-.card .noise {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: 1;
-    opacity: 0.1;
-}
-
-.card .content {
-    position: relative;
-    z-index: 2;
-    text-shadow: -3px 0px 2px rgba(0, 0, 0, 0.1);
-}
-
-.gradient-bg {
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(40deg, var(--color-bg1), var(--color-bg2));
-    /* Fond noir */
-    top: 0;
-    left: 0;
-}
-
-.gradient-bg .svgBlur {
-    display: none;
-}
-
-.gradient-bg .noiseBg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    mix-blend-mode: soft-light;
-    opacity: 0.3;
-}
-
-.gradient-bg .gradients-container {
-    filter: url(#goo) blur(40px);
-    width: 100%;
-    height: 100%;
-}
-
-.gradient-bg .interactive {
-    position: absolute;
-    background: radial-gradient(circle at center, rgba(var(--color-interactive), 0.8) 0, rgba(var(--color-interactive), 0) 50%) no-repeat;
-    /* Bleu */
-    mix-blend-mode: var(--blending);
-    width: 100%;
-    height: 100%;
-    top: -50%;
-    left: -50%;
-    opacity: 0.7;
-}
-
-.content p button {
-    background-color: #4CAF50;
-    /* Green background */
-    border: none;
-    /* Remove borders */
-    color: white;
-    /* White text */
-    padding: 15px 32px;
-    /* Add some padding */
-    text-align: center;
-    /* Center the text */
-    text-decoration: none;
-    /* Remove underline from text */
-    display: inline-block;
-    /* Set to inline-block */
-    font-size: 16px;
-    /* Increase font size */
-    margin: 4px 2px;
-    /* Add some margin */
-    cursor: pointer;
-    /* Change mouse cursor on hover */
-}
-
 #scroll-down {
     position: fixed;
     /* Le logo reste fixé en bas de la fenêtre */
@@ -627,4 +464,314 @@ body {
 #scroll-down:hover {
     opacity: 1;
     /* Opacité maximale au survol */
+}
+
+
+/* deuxieme page */
+
+.section2 {
+    --hue: 223;
+    --bg: hsl(var(--hue), 90%, 90%);
+    --fg: hsl(var(--hue), 90%, 10%);
+    --shade1: hsl(var(--hue), 10%, 90%);
+    --shade2: hsl(var(--hue), 90%, 80%);
+    --shade3: hsl(var(--hue), 90%, 10%);
+    --shade4: hsl(283, 90%, 80%);
+    --desc-text1: hsl(var(--hue), 10%, 30%);
+    --desc-text2: hsl(var(--hue), 10%, 70%);
+    --trans-dur: 0.3s;
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    --ease-out: cubic-bezier(0.33, 1, 0.68, 1);
+    font-size: calc(28px + (60 - 28) * (100vw - 280px) / (3840 - 280));
+}
+
+p {
+    color: hsl(var(--hue), 90%, 50%);
+    transition: color var(--trans-dur);
+}
+
+p:hover {
+    text-decoration: none;
+}
+
+p:visited {
+    color: hsl(var(--hue), 90%, 30%);
+}
+
+.accordion {
+    --anim-dur: 0.5s;
+    margin: auto;
+    width: 100%;
+    max-width: 18em;
+}
+
+.accordion__item {
+    background-color: var(--shade1);
+    transition: background-color var(--trans-dur);
+}
+
+.accordion__item-btn {
+    background-color: transparent;
+    box-shadow: 0 0 0 0.125em hsla(var(--hue), 90%, 50%, 0) inset;
+    cursor: pointer;
+    list-style: none;
+    outline: transparent;
+    padding: 0.25em 0.5em;
+    position: relative;
+    text-align: left;
+    width: 100%;
+    transition: box-shadow calc(var(--trans-dur) / 2) var(--ease-in-out);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.accordion__item-btn:focus-visible {
+    box-shadow: 0 0 0 0.125em hsla(var(--hue), 90%, 50%, 1) inset;
+}
+
+.accordion__item-btn:before,
+.accordion__item-btn:after {
+    background-color: currentColor;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 0.5em;
+    width: 0.75em;
+    height: 1px;
+    transition: transform var(--trans-dur) var(--ease-in-out);
+}
+
+.accordion__item-btn:after {
+    transform: rotate(-90deg);
+}
+
+.accordion__item-btn::marker,
+.accordion__item-btn::-webkit-details-marker {
+    display: none;
+}
+
+.accordion__item-desc {
+    color: var(--desc-text1);
+    min-height: 5.5em;
+    padding: 0 0.5em 1em 0.5em;
+    transition: color var(--trans-dur);
+}
+
+.accordion__item:nth-child(2) {
+    background-color: var(--shade2);
+}
+
+.accordion__item:nth-child(3) {
+    background-color: var(--shade3);
+}
+
+.accordion__item:nth-child(3) .accordion__item-btn {
+    color: var(--bg);
+    transition: color var(--trans-dur);
+}
+
+.accordion__item:nth-child(3) .accordion__item-desc {
+    color: var(--desc-text2);
+}
+
+.accordion__item:nth-child(4) {
+    background-color: var(--shade4);
+}
+
+.accordion__item.collapsing,
+.accordion__item.expanding {
+    overflow: hidden;
+}
+
+.accordion__item[open] .accordion__item-btn:after {
+    transform: rotate(0);
+}
+
+.accordion__item.expanding .accordion__item-btn:after {
+    animation: accordion-minus var(--anim-dur) var(--ease-out) forwards;
+    transform: rotate(0);
+}
+
+.accordion__item.expanding .accordion__item-desc {
+    animation: accordion-fade-in var(--anim-dur) var(--ease-out) forwards;
+}
+
+.accordion__item.collapsing .accordion__item-btn:after {
+    animation: accordion-plus var(--anim-dur) var(--ease-out) forwards;
+    transform: rotate(-90deg);
+}
+
+.accordion__item.collapsing .accordion__item-desc {
+    animation: accordion-fade-slide-out var(--anim-dur) var(--ease-out) forwards;
+}
+
+
+/* Dark theme */
+
+@media (prefers-color-scheme: dark) {
+     :root {
+        --bg: hsl(var(--hue), 90%, 10%);
+        --fg: hsl(var(--hue), 90%, 90%);
+        --shade1: hsl(var(--hue), 10%, 20%);
+        --shade2: hsl(var(--hue), 90%, 30%);
+        --shade3: hsl(var(--hue), 90%, 90%);
+        --shade4: hsl(283, 90%, 30%);
+        --desc-text1: hsl(var(--hue), 10%, 80%);
+        --desc-text2: hsl(var(--hue), 10%, 30%);
+    }
+    a {
+        color: hsl(var(--hue), 90%, 70%);
+    }
+    a:visited {
+        color: hsl(var(--hue), 90%, 90%);
+    }
+}
+
+
+/* Animations */
+
+@keyframes accordion-minus {
+    from {
+        transform: rotate(-90deg);
+    }
+    to {
+        transform: rotate(0);
+    }
+}
+
+@keyframes accordion-plus {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(-90deg);
+    }
+}
+
+@keyframes accordion-fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes accordion-fade-slide-out {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-0.75em);
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* Dernière page */
+
+.section7 {
+    background-color: rgb(0, 0, 0);
+}
+
+#cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-width: 922px;
+    width: calc(100% - 20px);
+    justify-content: center;
+    margin: auto;
+}
+
+#cards:hover>.card>.card-border {
+    opacity: 1
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    cursor: pointer;
+    height: 260px;
+    position: relative;
+    width: 300px;
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card::before,
+.card>.card-border {
+    background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.06), transparent 40%);
+    border-radius: inherit;
+    content: "";
+    height: 100%;
+    left: 0px;
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    transition: opacity 500ms;
+    width: 100%;
+    z-index: 2;
+}
+
+.card::before {
+    background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.06), transparent 40%);
+    z-index: 3;
+}
+
+.card>.card-border {
+    background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.3), transparent 40%);
+    z-index: 1;
+}
+
+.card>.card-content {
+    background: var(--card-color);
+    border-radius: inherit;
+    height: calc(100% - 2px);
+    margin: 1px;
+    position: relative;
+    width: calc(100% - 2px);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+    /* Ajout d'un écart entre les éléments */
+}
+
+.card {
+    --bg-color: rgb(0, 0, 0);
+    --card-color: rgb(23, 23, 23);
+}
+
+.card-content p {
+    margin: 0;
+}
+
+.card-content a {
+    text-decoration: none;
+}
+
+.card-content button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+    /* Ajout de cette ligne */
 }
