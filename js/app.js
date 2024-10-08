@@ -171,3 +171,4 @@ window.addEventListener('load', () => {
     document.body.classList.remove('noscroll'); // Réactive le défilement
   }, 3000); // Remplace 3000 par la durée réelle du chargement
 });
+
