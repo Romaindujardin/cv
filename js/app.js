@@ -159,3 +159,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+// Afficher le loader et empêcher le défilement
+window.addEventListener('load', () => {
+  const loader = document.getElementById('loader');
+  document.body.classList.add('noscroll'); // Ajoute la classe pour bloquer le défilement
+
+  // Simuler une fin de chargement après 3 secondes (par exemple)
+  setTimeout(() => {
+    loader.style.display = 'none'; // Cache le loader
+    document.body.classList.remove('noscroll'); // Réactive le défilement
+  }, 3000); // Remplace 3000 par la durée réelle du chargement
+});

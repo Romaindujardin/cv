@@ -258,6 +258,13 @@ textarea {
   z-index: 9999;
 }
 
+/* Empêche le défilement lorsqu'on ajoute cette classe au body */
+body.noscroll {
+  overflow: hidden;
+}
+
+
+
 .loader-text {
   color: white;
   font-size: 2em;
