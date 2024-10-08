@@ -453,7 +453,6 @@ body {
 
 .card {
   overflow: hidden;
-  padding: 3px;
   margin: 0;
   background: rgb(128 128 128 / 0.2);
   border-radius: 10px;
@@ -470,7 +469,7 @@ body {
 .blob {
   filter: blur(40px);
   position: absolute;
-  z-index: -1;
+  z-index: 1;
   top: 0;
   opacity: 0;
   left: 0;
@@ -499,12 +498,15 @@ body {
   height: 20%; /* Adjust the height as needed */
   overflow: hidden;
   border-radius: 10px 10px 0 0;
+  z-index: 2;
+
 }
 
 .imagec img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+
 }
 
 .inner {
@@ -517,10 +519,7 @@ body {
   transition: all 300ms ease-in-out;
 }
 
-.card:hover > .inner {
-  background: rgb(26,26,26, 0.6);
-  backdrop-filter: blur(80px);
-}
+
 
 .containercomp {
   display: flex;
