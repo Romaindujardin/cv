@@ -172,3 +172,16 @@ window.addEventListener('load', () => {
   }, 3000); // Remplace 3000 par la durée réelle du chargement
 });
 
+document.getElementById('navbarToggle').addEventListener('click', function() {
+  document.getElementById('overlay').style.display = 'flex';
+});
+
+document.getElementById('closeOverlay').addEventListener('click', function() {
+  document.getElementById('overlay').style.display = 'none';
+});
+
+document.querySelectorAll('.overlay-link').forEach(link => {
+  link.addEventListener('click', function() {
+    document.getElementById('overlay').style.display = 'none';
+  });
+});

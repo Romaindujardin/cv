@@ -37,13 +37,13 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
   <div class="container-fluid">
     <a class="navbar-brand btn-flip" style="font-size: 130%" href="#" data-back="Romain DUJARDIN" data-front="Romain DUJARDIN"></a>
-    <span class="status-indicator"></span> <span class="status-text">Disponible</span>
+    <span class="status-indicator"></span>
+    <span class="status-text">Disponible</span>
 
     <!-- Bouton toggle pour mobile -->
-    <button class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler ml-auto custom-toggler" type="button" id="navbarToggle">
       <span class="navbar-toggler-icon"></span>
     </button>
-
 
     <!-- Liens de la navbar -->
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -55,6 +55,17 @@
     </div>
   </div>
 </nav>
+
+<!-- Overlay pour afficher les éléments -->
+<div id="overlay" class="overlay">
+  <div class="overlay-content">
+    <a class="navbar-brand btn-flip overlay-link" style="font-size: 130%" href="#section1" data-back="About ME" data-front="About ME"></a>
+    <a class="navbar-brand btn-flip overlay-link" style="font-size: 130%" href="#section3" data-back="Projets" data-front="Projets"></a>
+    <a class="navbar-brand btn-flip overlay-link" style="font-size: 130%" href="#section5" data-back="Contacts" data-front="Contacts"></a>
+    <button id="closeOverlay" class="close-overlay">Fermer</button>
+  </div>
+</div>
+
 
 <canvas id='scene'></canvas>
 
