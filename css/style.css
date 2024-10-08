@@ -1,0 +1,903 @@
+/*! HTML5 Boilerplate v9.0.1 | MIT License | https://html5boilerplate.com/ */
+
+/* main.css 3.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden,
+[hidden] {
+  display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  /* 1 */
+}
+
+/*
+ * Extends the .visually-hidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.visually-hidden.focusable:active,
+.visually-hidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  white-space: inherit;
+  width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+  visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * The use of `table` rather than `block` is only necessary if using
+ * `::before` to contain the top-margins of child elements.
+ */
+
+.clearfix::before,
+.clearfix::after {
+  content: "";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+  /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 1.25dppx),
+  (min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   https://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: #fff !important;
+    color: #000 !important;
+    /* Black prints faster */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]::after {
+    content: " (" attr(title) ")";
+  }
+
+  /*
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+   */
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: "";
+  }
+
+  pre {
+    white-space: pre-wrap !important;
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loader-text {
+  color: white;
+  font-size: 2em;
+  font-family: Arial, sans-serif;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+#loader.fade-out {
+  animation: fadeOut 1s forwards;
+}
+
+body {
+  --dot-bg: black;
+  --dot-color: white;
+  --dot-size: 1px;
+  --dot-space: 22px;
+  background:
+    linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+    linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+    var(--dot-color);
+  z-index: -99;
+}
+
+/* Base styles for the navbar */
+.navbar-brand {
+  color: white;
+  cursor: pointer;
+}
+
+.navbar-brand:hover {
+  color: white;
+}
+
+.custom-toggler.navbar-toggler {
+  border-color: rgb(255, 255, 255) !important;
+}
+
+/* Style pour le point clignotant */
+.status-indicator {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: green;
+  border-radius: 50%;
+  margin-left: 10px;
+  animation: pulse 1.5s infinite;
+}
+
+/* Animation pour un effet de pulsation */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1); /* Taille normale */
+    background-color: darkgreen; /* Couleur normale */
+  }
+  50% {
+    transform: scale(1.3); /* Le point grandit légèrement */
+    background-color: green; /* Le point devient un peu plus clair */
+  }
+}
+
+/* Style pour le texte "Disponible" */
+.status-text {
+  color: white;
+  margin-left: 5px;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+
+
+.btn-flip {
+  opacity: 1;
+  outline: 0;
+  color: white;
+  line-height: 40px;
+  position: relative;
+  text-align: center;
+  letter-spacing: 1px;
+  display: inline-block;
+  text-decoration: none;
+  font-family: "Open Sans";
+  text-transform: uppercase;
+}
+
+.btn-flip:hover:after {
+  opacity: 1;
+  transform: translateY(0) rotateX(0);
+}
+
+.btn-flip:hover:before {
+  opacity: 0;
+  transform: translateY(50%) rotateX(90deg);
+}
+
+.btn-flip:after {
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  color: white;
+  display: block;
+  transition: 0.5s;
+  position: absolute;
+  background: transparent;
+  content: attr(data-back);
+  transform: translateY(-50%) rotateX(90deg);
+  font-style: italic;
+}
+
+.btn-flip:before {
+  top: 0;
+  left: 0;
+  opacity: 1;
+  color: white;
+  display: block;
+  padding: 0 30px;
+  line-height: 40px;
+  transition: 0.5s;
+  position: relative;
+  background: transparent;
+  content: attr(data-front);
+  transform: translateY(0) rotateX(0);
+}
+
+
+/* Media query pour les petits écrans */
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 10px; /* Réduire la taille de la police pour l'adapter */
+    padding: 5px;
+  }
+
+  .btn-flip {
+    line-height: 25px;
+    font-size: 8px; /* Réduire la taille du texte pour qu'il reste lisible */
+    padding: 0 15px;
+  }
+
+  .form-inline {
+    display: block; /* Permet aux éléments de se placer en colonne pour petits écrans */
+  }
+}
+
+:root {
+  --particle-color-1: hsl(200, 100%, 15%);
+  --particle-color-2: hsl(200, 100%, 30%);
+  --particle-color-3: hsl(200, 100%, 45%);
+  --particle-color-4: hsl(200, 100%, 60%);
+  --particle-color-5: hsl(200, 100%, 75%);
+}
+
+#scene {
+  height: 120vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+}
+
+.hover-zoom {
+  transition: transform 0.3s ease;
+}
+
+.hover-zoom:hover {
+  transform: scale(2.5);
+}
+
+
+
+.project {
+  width: 100%;
+  margin: 0;
+  padding: 0 15%; /* Ajoute un padding de 20px à gauche et à droite */
+  font-family: Verdana, sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  min-height: 100vh;
+  gap: 10px;
+  flex-wrap: wrap;
+  overflow-x: hidden; /* Évite le slide horizontal */
+}
+
+.card {
+  overflow: hidden;
+  padding: 3px;
+  margin: 0;
+  background: rgb(128 128 128 / 0.2);
+  border-radius: 10px;
+  position: relative;
+  transition: all 300ms ease-in-out;
+  width: calc(50% - 20px); /* Ajuste la largeur pour 2 cartes par ligne */
+  box-sizing: border-box;
+  margin:5px;
+
+}
+
+
+
+.blob {
+  filter: blur(40px);
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  opacity: 0;
+  left: 0;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: rgb(255, 255, 255, 0.5);
+  transition: all 300ms ease-in-out;
+}
+
+.fakeblob {
+  display: hidden;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+
+
+.imagec {
+  width: 100%;
+  height: 20%; /* Adjust the height as needed */
+  overflow: hidden;
+  border-radius: 10px 10px 0 0;
+}
+
+.imagec img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.inner {
+  border-radius: 0 0 7px 7px;
+  padding: 10px;
+  width: 100%;
+  height: 150px;
+  background: rgb(26,26,26);
+  backdrop-filter: blur(80px);
+  transition: all 300ms ease-in-out;
+}
+
+.card:hover > .inner {
+  background: rgb(26,26,26, 0.6);
+  backdrop-filter: blur(80px);
+}
+
+.containercomp {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  justify-content: center;
+  padding: 20px;
+}
+.cardcomp {
+  width: 15%;
+  height: 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #000;
+  border-radius: 10px;
+  background-color: #333; /* Dark gray background */
+  transition: border-color 0.3s;
+}
+.cardcomp:hover {
+  border-color: #007BFF;
+}
+.cardcomp svg {
+  width: 40px;
+  height: 40px;
+  fill: #fff; /* Change fill color to white */
+}
+.cardcomp p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #fff; /* Change text color to white */
+}
+
+.all {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 112.5%;
+  line-height: 1.6em;
+  margin-bottom: 10%;
+  margin-top: 5%;
+}
+
+/* ================ The Timeline ================ */
+
+.timeline {
+  position: relative;
+  width: 660px;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 1em 0;
+  list-style-type: none;
+}
+
+.timeline:before {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  content: ' ';
+  display: block;
+  width: 6px;
+  height: 100%;
+  margin-left: -3px;
+  background: rgb(80,80,80);
+  background: -moz-linear-gradient(top, rgba(80,80,80,0) 0%, rgb(80,80,80) 8%, rgb(80,80,80) 92%, rgba(80,80,80,0) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(30,87,153,1)), color-stop(100%,rgba(125,185,232,1)));
+  background: -webkit-linear-gradient(top, rgba(80,80,80,0) 0%, rgb(80,80,80) 8%, rgb(80,80,80) 92%, rgba(80,80,80,0) 100%);
+  background: -o-linear-gradient(top, rgba(80,80,80,0) 0%, rgb(80,80,80) 8%, rgb(80,80,80) 92%, rgba(80,80,80,0) 100%);
+  background: -ms-linear-gradient(top, rgba(80,80,80,0) 0%, rgb(80,80,80) 8%, rgb(80,80,80) 92%, rgba(80,80,80,0) 100%);
+  background: linear-gradient(to bottom, rgba(80,80,80,0) 0%, rgb(80,80,80) 8%, rgb(80,80,80) 92%, rgba(80,80,80,0) 100%);
+
+  z-index: 5;
+}
+
+.timeline li {
+  padding: 1em 0;
+}
+
+.timeline li:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.direction-l{
+  position: relative;
+  width: 300px;
+  float: left;
+  text-align: right;
+  left: -4px;
+}
+
+.direction-lb{
+  position: relative;
+  width: 400px;
+  float: left;
+  text-align: right;
+  left: -104px
+}
+
+.direction-r {
+  position: relative;
+  width: 300px;
+  float: right;
+  right: -4px;
+}
+
+.direction-rb{
+  position: relative;
+  width: 400px;
+  float: right;
+  right: -104px
+}
+
+.flag-wrapper {
+  position: relative;
+  display: inline-block;
+
+  text-align: center;
+}
+
+.flag {
+  position: relative;
+  display: inline;
+  background: rgb(248,248,248);
+  padding: 6px 10px;
+  border-radius: 5px;
+
+  font-weight: 600;
+  text-align: left;
+}
+
+.direction-l .flag,
+.direction-lb .flag{
+  -webkit-box-shadow: -1px 1px 1px rgba(0,0,0,0.15), 0 0 1px rgba(0,0,0,0.15);
+  -moz-box-shadow: -1px 1px 1px rgba(0,0,0,0.15), 0 0 1px rgba(0,0,0,0.15);
+  box-shadow: -1px 1px 1px rgba(0,0,0,0.15), 0 0 1px rgba(0,0,0,0.15);
+}
+
+.direction-r .flag,
+.direction-rb .flag{
+  -webkit-box-shadow: 1px 1px 1px rgba(0,0,0,0.15), 0 0 1px rgba(0,0,0,0.15);
+  -moz-box-shadow: 1px 1px 1px rgba(0,0,0,0.15), 0 0 1px rgba(0,0,0,0.15);
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.15), 0 0 1px rgba(0,0,0,0.15);
+}
+
+.direction-l .flag:before,
+.direction-r .flag:before,
+.direction-lb .flag:before,
+.direction-rb .flag:before{
+  position: absolute;
+  top: 50%;
+  right: -40px;
+  content: ' ';
+  display: block;
+  width: 12px;
+  height: 12px;
+  margin-top: -10px;
+  border-radius: 10px;
+  border: 4px solid rgb(30, 27, 155);
+  z-index: 10;
+}
+
+.direction-r .flag:before,
+.direction-rb .flag:before{
+  left: -40px;
+}
+
+.direction-l .flag:after,
+.direction-lb .flag:after{
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  height: 0;
+  width: 0;
+  margin-top: -8px;
+  border: solid transparent;
+  border-left-color: rgb(248,248,248);
+  border-width: 8px;
+  pointer-events: none;
+}
+
+.direction-r .flag:after,
+.direction-rb .flag:after{
+  content: "";
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  height: 0;
+  width: 0;
+  margin-top: -8px;
+  border: solid transparent;
+  border-right-color: rgb(248,248,248);
+  border-width: 8px;
+  pointer-events: none;
+}
+
+.time-wrapper {
+  display: inline;
+
+  line-height: 1em;
+  font-size: 0.66666em;
+  color: rgb(141, 172, 255);
+  vertical-align: middle;
+}
+
+.direction-l .time-wrapper,
+.direction-lb .time-wrapper {
+  float: left;
+}
+
+.direction-r .time-wrapper,
+.direction-rb .time-wrapper {
+  float: right;
+}
+
+.time {
+  display: inline-block;
+  padding: 4px 6px;
+}
+
+.desc {
+  margin: 1em 0.75em 0 0;
+color: white;
+  font-size: 0.77777em;
+  font-style: italic;
+  line-height: 1.5em;
+}
+
+.direction-r .desc,
+.direction-rb .desc{
+  margin: 1em 0 0 0.75em;
+}
+
+/* ================ Timeline Media Queries ================ */
+
+@media screen and (max-width: 660px) {
+
+  .timeline {
+    width: 100%;
+    padding: 4em 0 1em 0;
+  }
+
+  .timeline li {
+    padding: 2em 0;
+  }
+
+  .direction-l,
+  .direction-r,
+  .direction-lb,
+  .direction-rb{
+    float: none;
+    width: 100%;
+
+    text-align: center;
+  }
+
+  .flag-wrapper {
+    text-align: center;
+  }
+
+  .flag {
+    background: rgb(255,255,255);
+    z-index: 15;
+  }
+
+  .direction-l .flag:before,
+  .direction-r .flag:before,
+  .direction-lb .flag:before,
+  .direction-rb .flag:before{
+    position: absolute;
+    top: -30px;
+    left: 51%;
+    content: ' ';
+    display: block;
+    width: 12px;
+    height: 12px;
+    margin-left: -9px;
+    border-radius: 10px;
+    border: 4px solid rgb(31, 52, 152);
+    z-index: 10;
+  }
+
+  .direction-l .flag:after,
+  .direction-r .flag:after,
+  .direction-lb .flag:after,
+  .direction-rb .flag:after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -8px;
+    height: 0;
+    width: 0;
+    margin-left: -8px;
+    border: solid transparent;
+    border-bottom-color: rgb(255,255,255);
+    border-width: 8px;
+    pointer-events: none;
+  }
+
+  .time-wrapper {
+    display: block;
+    position: relative;
+    margin: 4px 0 0 0;
+    z-index: 14;
+  }
+
+  .direction-l .time-wrapper,
+  .direction-lb .time-wrapper {
+    float: none;
+  }
+
+  .direction-r .time-wrapper,
+  .direction-rb .time-wrapper {
+    float: none;
+  }
+
+  .desc {
+    position: relative;
+    margin: 1em 0 0 0;
+    padding: 1em;
+    -webkit-box-shadow: 0 0 1px rgba(0,0,0,0.20);
+    -moz-box-shadow: 0 0 1px rgba(0,0,0,0.20);
+    box-shadow: 0 0 1px rgba(0,0,0,0.20);
+
+    z-index: 15;
+  }
+
+  .direction-l .desc,
+  .direction-r .desc,
+  .direction-lb .desc,
+  .direction-rb .desc{
+    position: relative;
+    margin: 1em 1em 0 1em;
+    padding: 1em;
+
+    z-index: 15;
+  }
+
+  .direction-l{
+    left:1px;
+  }
+  .direction-r{
+    right:-1px;
+  }
+  .direction-lb{
+    left:0px;
+  }
+  .direction-rb{
+    right:0px;
+  }
+
+}
+
+@media screen and (min-width: 400px) and (max-width: 660px) {
+
+.direction-l .desc,
+.direction-r .desc,
+.direction-lb .desc,
+.direction-rb .desc{
+  margin: 1em 4em 0 4em;
+}
+
+}
+
+.finbutton button{
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 10px;
+
+}
+
+
+
