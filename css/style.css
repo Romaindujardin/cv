@@ -456,6 +456,7 @@ body {
   gap: 10px;
   flex-wrap: wrap;
   overflow-x: hidden; /* Évite le slide horizontal */
+
 }
 
 .card {
@@ -502,7 +503,7 @@ body {
 
 .imagec {
   width: 100%;
-  height: 20%; /* Adjust the height as needed */
+  height: 100%; /* Adjust the height as needed */
   overflow: hidden;
   border-radius: 10px 10px 0 0;
   z-index: 2;
@@ -520,13 +521,52 @@ body {
   border-radius: 0 0 7px 7px;
   padding: 10px;
   width: 100%;
-  height: 150px;
+  height: 200px;
   background: rgb(26,26,26);
   backdrop-filter: blur(80px);
   transition: all 300ms ease-in-out;
 }
 
+/* Media queries pour rendre les cartes responsives */
+@media (max-width: 1024px) {
+  .card {
+    width: calc(100% - 20px); /* Ajuste la carte pour prendre toute la largeur en mode tablette */
+  }
+}
 
+@media (max-width: 768px) {
+  .project {
+    padding: 0 10%; /* Réduit le padding pour les petits écrans */
+  }
+
+  .card {
+    width: calc(100% - 10px); /* Une carte par ligne sur les petits écrans */
+  }
+
+  .inner {
+    padding: 5px; /* Réduit le padding interne pour les petits écrans */
+    font-size: 14px; /* Ajuste la taille du texte */
+  }
+
+  .imagec {
+    height: 150px; /* Réduit la hauteur de l'image sur petits écrans */
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 100%; /* Une carte par ligne sur très petits écrans */
+  }
+
+  .inner {
+    font-size: 12px; /* Taille de police plus petite pour les petits écrans */
+    padding: 5px;
+  }
+
+  .imagec {
+    height: 120px; /* Ajuste la hauteur de l'image */
+  }
+}
 
 .containercomp {
   display: flex;
