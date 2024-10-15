@@ -99,16 +99,22 @@ function initScene() {
   context.font = 'bold ' + (cw / 8) + 'px sans-serif';
   context.fillStyle = sceneBackground;
   context.textAlign = 'left';
+// Taille des marges en pixels
+  let marginTop404 = 200;      // Marge supérieure pour le texte principal (en px)
+  let marginTopOthersubtitle = 350; // Marge supérieure pour l'autre texte (en px)
+  let marginTopSubtitle = 500; // Marge supérieure pour le texte supplémentaire (en px)
+
 // Texte principal
-context.fillText(text404, 50, ch - (ch * 0.7));  // Texte positionné à 10% du bas
+  context.fillText(text404, 50, marginTop404);
 
 // Texte supplémentaire
-context.font = 'bold ' + (cw / 9) + 'px sans-serif';
-context.fillText(othersubtitle, 50, ch - (ch * 0.5));  // Texte positionné à 25% du bas
+  context.font = 'bold ' + (cw / 9) + 'px sans-serif';
+  context.fillText(othersubtitle, 50, marginTopOthersubtitle);
 
 // Texte supplémentaire
-context.font = (cw / 14) + 'px sans-serif';
-context.fillText(textSubtitle, 50, ch - (ch * 0.3));  // Texte positionné à 40% du bas
+  context.font = (cw / 14) + 'px sans-serif';
+  context.fillText(textSubtitle, 50, marginTopSubtitle);
+
 
 
 
