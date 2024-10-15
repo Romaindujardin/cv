@@ -607,8 +607,8 @@ body {
   padding: 20px;
 }
 .cardcomp {
-  width: 15%;
-  height: 15%;
+  width: 150px;
+  height: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
