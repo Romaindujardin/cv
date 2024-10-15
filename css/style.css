@@ -977,7 +977,7 @@ color: white;
 }
 
 .button-container button:hover{
-  background-color: #007BFF;
+  border-color: #007BFF;
 
 }
 
