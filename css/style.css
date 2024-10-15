@@ -967,7 +967,7 @@ color: white;
 
 }
 
-.finbutton button{
+.button-container button{
   background-color: #333;
   color: white;
   cursor: pointer;
@@ -976,7 +976,7 @@ color: white;
 
 }
 
-.finbutton button:hover{
+.button-container button:hover{
   background-color: #007BFF;
 
 }
