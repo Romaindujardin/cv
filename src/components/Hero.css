@@ -1,0 +1,17 @@
+.hero-section {
+  position: relative;
+  z-index: 1;
+}
+
+.hover-zoom {
+  transition: transform 0.3s ease;
+}
+
+.hover-zoom:hover {
+  transform: scale(2.5);
+}
+
+.image-container {
+  display: inline-block;
+  vertical-align: middle;
+}

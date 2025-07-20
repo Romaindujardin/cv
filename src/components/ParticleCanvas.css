@@ -1,0 +1,16 @@
+:root {
+  --particle-color-1: hsl(200, 100%, 15%);
+  --particle-color-2: hsl(200, 100%, 30%);
+  --particle-color-3: hsl(200, 100%, 45%);
+  --particle-color-4: hsl(200, 100%, 60%);
+  --particle-color-5: hsl(200, 100%, 75%);
+}
+
+#scene {
+  height: 120vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  position: relative;
+  z-index: 0;
+}

@@ -1,0 +1,149 @@
+/* Base styles for the navbar */
+.navbar-brand {
+  color: white;
+  cursor: pointer;
+}
+
+.navbar-brand:hover {
+  color: white;
+}
+
+.custom-toggler.navbar-toggler {
+  border-color: rgb(255, 255, 255) !important;
+}
+
+/* Style pour le point clignotant */
+.status-indicator {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: green;
+  border-radius: 50%;
+  margin-left: 1%;
+  animation: pulse 1.5s infinite;
+}
+
+/* Animation pour un effet de pulsation */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1); /* Taille normale */
+    background-color: darkgreen; /* Couleur normale */
+  }
+  50% {
+    transform: scale(1.3); /* Le point grandit légèrement */
+    background-color: green; /* Le point devient un peu plus clair */
+  }
+}
+
+/* Style pour le texte "Disponible" */
+.status-text {
+  color: white;
+  margin-left: 5px;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.overlay {
+  display: none; /* Caché par défaut */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Fond noir transparent */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Au-dessus des autres éléments */
+}
+
+.overlay-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.overlay-link {
+  color: white;
+  font-size: 2em;
+  margin: 1em;
+  text-decoration: none;
+}
+
+.close-overlay {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1.2em;
+}
+
+.btn-flip {
+  opacity: 1;
+  outline: 0;
+  color: white;
+  line-height: 40px;
+  position: relative;
+  text-align: center;
+  letter-spacing: 1px;
+  display: inline-block;
+  text-decoration: none;
+  font-family: "Open Sans";
+  text-transform: uppercase;
+}
+
+.btn-flip:hover:after {
+  opacity: 1;
+  transform: translateY(0) rotateX(0);
+}
+
+.btn-flip:hover:before {
+  opacity: 0;
+  transform: translateY(50%) rotateX(90deg);
+}
+
+.btn-flip:after {
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  color: white;
+  display: block;
+  transition: 0.5s;
+  position: absolute;
+  background: transparent;
+  content: attr(data-back);
+  transform: translateY(-50%) rotateX(90deg);
+  font-style: italic;
+}
+
+.btn-flip:before {
+  top: 0;
+  left: 0;
+  opacity: 1;
+  color: white;
+  display: block;
+  padding: 0 30px;
+  line-height: 40px;
+  transition: 0.5s;
+  position: relative;
+  background: transparent;
+  content: attr(data-front);
+  transform: translateY(0) rotateX(0);
+}
+
+/* Media query pour les petits écrans */
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 10px; /* Réduire la taille de la police pour l'adapter */
+    padding: 5px;
+  }
+
+  .btn-flip {
+    line-height: 25px;
+    font-size: 8px; /* Réduire la taille du texte pour qu'il reste lisible */
+    padding: 0 15px;
+  }
+
+  .form-inline {
+    display: block; /* Permet aux éléments de se placer en colonne pour petits écrans */
+  }
+}

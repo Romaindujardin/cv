@@ -1,0 +1,41 @@
+.skills-section {
+  position: relative;
+  z-index: 1;
+}
+
+.containercomp {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.cardcomp {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #000;
+  border-radius: 10px;
+  background-color: #333; /* Dark gray background */
+  transition: border-color 0.3s;
+}
+
+.cardcomp:hover {
+  border-color: #007bff;
+}
+
+.cardcomp svg {
+  width: 40px;
+  height: 40px;
+  fill: #fff; /* Change fill color to white */
+}
+
+.cardcomp p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #fff; /* Change text color to white */
+}
