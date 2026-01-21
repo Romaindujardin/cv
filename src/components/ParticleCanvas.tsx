@@ -29,6 +29,7 @@ const ParticleCanvas: React.FC<ParticleCanvasProps> = ({
   const previousMouseCoordRef = useRef({ x: 0, y: 0 });
   const modeRef = useRef<ParticleCanvasMode>(mode);
   const rafIdRef = useRef<number | null>(null);
+  const lastSizeRef = useRef<{ w: number; h: number } | null>(null);
 
   const random = (min: number, max: number): number => {
     return Math.round(Math.random() * (max - min) + min);
@@ -137,8 +138,10 @@ const ParticleCanvas: React.FC<ParticleCanvasProps> = ({
     const context = canvas.getContext("2d");
     if (!context) return;
 
-    canvas.height = canvas.getBoundingClientRect().height;
-    canvas.width = canvas.getBoundingClientRect().width;
+    const rect = canvas.getBoundingClientRect();
+    canvas.height = rect.height;
+    canvas.width = rect.width;
+    lastSizeRef.current = { w: rect.width, h: rect.height };
 
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.fillStyle = getCssVar("--scene-background") || "black";
@@ -264,11 +267,18 @@ const ParticleCanvas: React.FC<ParticleCanvasProps> = ({
     renderScene();
 
     window.addEventListener("mousemove", onMouseMove);
-    window.addEventListener("touchmove", onTouchMove);
-    window.addEventListener("touchend", onTouchEnd);
+    // passive: important sur mobile pour ne pas perturber le scroll
+    window.addEventListener("touchmove", onTouchMove, { passive: true });
+    window.addEventListener("touchend", onTouchEnd, { passive: true });
 
     const handleResize = () => {
-      initScene();
+      // Sur iOS/Android, le scroll peut déclencher des "resize" (barre d'adresse).
+      // Réinitialiser les particules dans ce cas donne l'effet "reset" à chaque scroll.
+      // On ne rebuild que si la largeur change réellement (orientation / vrai resize).
+      const rect = canvas.getBoundingClientRect();
+      const last = lastSizeRef.current;
+      const widthChanged = !last || Math.abs(rect.width - last.w) > 1;
+      if (widthChanged) initScene();
     };
 
     window.addEventListener("resize", handleResize);
