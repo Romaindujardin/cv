@@ -413,14 +413,30 @@ body {
 /* Media query pour les petits écrans */
 @media (max-width: 768px) {
   .navbar-brand {
-    font-size: 10px; /* Réduire la taille de la police pour l'adapter */
-    padding: 5px;
+    font-size: 11px; /* Texte un peu plus compact */
+    padding: 0 4px; /* Réduit la marge interne gauche/droite (\"bordure\" autour du nom) */
+    margin-right: 4px;
   }
 
   .btn-flip {
-    line-height: 25px;
-    font-size: 8px; /* Réduire la taille du texte pour qu'il reste lisible */
-    padding: 0 15px;
+    line-height: 24px;
+    font-size: 10px; /* Texte plus petit pour rester sur une ligne avec le statut */
+    padding: 0 8px; /* Moins d'espace latéral */
+  }
+
+  .btn-flip:before {
+    padding: 0 10px; /* Réduit encore l'espace avant/après \"Romain DUJARDIN\" */
+  }
+
+  .status-indicator {
+    width: 8px;
+    height: 8px;
+    margin-left: 4px; /* Espace plus petit entre le nom et le point vert */
+  }
+
+  .status-text {
+    margin-left: 4px; /* Espace plus serré entre le point et \"Disponible\" */
+    font-size: 12px;
   }
 
   .form-inline {
