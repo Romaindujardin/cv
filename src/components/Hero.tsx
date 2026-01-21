@@ -65,7 +65,7 @@ const Hero: React.FC = () => {
             onMouseLeave={handleMouseLeave}
           />
         </span>{" "}
-        Romain, je suis un étudiant français en{" "}
+        Romain, je suis étudiant français en{" "}
         <strong
           style={{
             textDecoration: "underline",
@@ -87,16 +87,39 @@ const Hero: React.FC = () => {
             onMouseLeave={handleMouseLeave}
           />
         </span>{" "}
-        en 5eme année. Je suis en contrat de professionnalisation à {" "}
+        en 5eme année d'école d'ingénieur. 
+        Je réalise actuellement mon contrat de professionnalisation chez{" "}
         <strong
           style={{
             textDecoration: "underline",
             textDecorationColor: "#62B2FF",
           }}
         >
-          Safran Ceramics
+          Safran Ceramics{" "}
         </strong>
-        . Et je suis à l'écoute de nouvelles opportunités en CDI dans la vue de mon obtention du diplôme d'ingénieur.
+        <span className="image-container">
+          <img
+            className="hover-zoom tilt-image"
+            style={{ borderRadius: "15px" }}
+            height="50"
+            width="100"
+            src="./img/safran.jpg"
+            alt="Romain"
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+          />
+        </span>{" "}
+        , où je développe des solutions d’IA appliquées à l’analyse d’images et à l’industrialisation.
+        Je recherche aujourd’hui un{" "}
+        <strong
+          style={{
+            textDecoration: "underline",
+            textDecorationColor: "#62B2FF",
+          }}
+        >
+          CDI en intelligence artificielle  
+        </strong> 
+        {" "}en vue de l’obtention de mon diplôme d’ingénieur.
       </p>
     </section>
   );
