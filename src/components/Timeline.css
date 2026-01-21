@@ -1,397 +1,134 @@
-.timeline-section {
+.rdTimelineSection {
   position: relative;
+  z-index: 1;
+  padding: 60px 0;
+}
+
+.rdTimelineSection * {
+  box-sizing: border-box;
+}
+
+.rdTimelineContainer {
+  width: min(980px, 90vw);
+  padding: 30px 0;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden; /* contient les floats */
+}
+
+.rdTimelineContainer:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -1px;
+  width: 2px;
+  height: 100%;
+  background: rgba(204, 209, 217, 0.5);
   z-index: 1;
 }
 
-.all {
-  margin: 0;
-  padding: 0;
-  font-family: "Open Sans", sans-serif;
-  font-size: 112.5%;
-  line-height: 1.6em;
-  margin-bottom: 10%;
-  margin-top: 5%;
-}
-
-/* ================ The Timeline ================ */
-
-.timeline {
-  position: relative;
-  width: 660px;
-  margin: 0 auto;
-  margin-top: 20px;
-  padding: 1em 0;
-  list-style-type: none;
-}
-
-.timeline:before {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  content: " ";
-  display: block;
-  width: 6px;
-  height: 100%;
-  margin-left: -3px;
-  background: rgb(80, 80, 80);
-  background: -moz-linear-gradient(
-    top,
-    rgba(80, 80, 80, 0) 0%,
-    rgb(80, 80, 80) 8%,
-    rgb(80, 80, 80) 92%,
-    rgba(80, 80, 80, 0) 100%
-  );
-  background: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    color-stop(0%, rgba(30, 87, 153, 1)),
-    color-stop(100%, rgba(125, 185, 232, 1))
-  );
-  background: -webkit-linear-gradient(
-    top,
-    rgba(80, 80, 80, 0) 0%,
-    rgb(80, 80, 80) 8%,
-    rgb(80, 80, 80) 92%,
-    rgba(80, 80, 80, 0) 100%
-  );
-  background: -o-linear-gradient(
-    top,
-    rgba(80, 80, 80, 0) 0%,
-    rgb(80, 80, 80) 8%,
-    rgb(80, 80, 80) 92%,
-    rgba(80, 80, 80, 0) 100%
-  );
-  background: -ms-linear-gradient(
-    top,
-    rgba(80, 80, 80, 0) 0%,
-    rgb(80, 80, 80) 8%,
-    rgb(80, 80, 80) 92%,
-    rgba(80, 80, 80, 0) 100%
-  );
-  background: linear-gradient(
-    to bottom,
-    rgba(80, 80, 80, 0) 0%,
-    rgb(80, 80, 80) 8%,
-    rgb(80, 80, 80) 92%,
-    rgba(80, 80, 80, 0) 100%
-  );
-  z-index: 5;
-}
-
-.timeline li {
-  padding: 1em 0;
-}
-
-.timeline li:after {
-  content: "";
-  display: block;
-  height: 0;
+.rdTimelineBlock {
+  width: calc(50% + 8px);
+  display: flex;
+  justify-content: space-between;
   clear: both;
-  visibility: hidden;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 22px;
 }
 
-.direction-l {
-  position: relative;
-  width: 300px;
-  float: left;
-  text-align: right;
-  left: -4px;
-}
-
-.direction-lb {
-  position: relative;
-  width: 400px;
-  float: left;
-  text-align: right;
-  left: -104px;
-}
-
-.direction-r {
-  position: relative;
-  width: 300px;
+.rdTimelineBlockRight {
   float: right;
-  right: -4px;
+  flex-direction: row;
 }
 
-.direction-rb {
-  position: relative;
-  width: 400px;
-  float: right;
-  right: -104px;
+.rdTimelineBlockLeft {
+  float: left;
+  flex-direction: row-reverse;
 }
 
-.flag-wrapper {
-  position: relative;
-  display: inline-block;
-  text-align: center;
+.rdTimelineMarker {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  /* Ronds pleins (pas donuts) */
+  border: 2px solid rgba(245, 247, 250, 0.9);
+  background: #62b2ff;
+  margin-top: 10px;
+  flex: 0 0 auto;
+  z-index: 3;
 }
 
-.flag {
-  position: relative;
-  display: inline;
-  background: rgb(248, 248, 248);
-  padding: 6px 10px;
-  border-radius: 5px;
-  font-weight: 600;
-  text-align: left;
+.rdTimelineCurrent .rdTimelineMarker {
+  animation: rdTimelinePulse 1.5s infinite;
 }
 
-.direction-l .flag,
-.direction-lb .flag {
-  -webkit-box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15),
-    0 0 1px rgba(0, 0, 0, 0.15);
-  -moz-box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.15);
-  box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.15);
-}
-
-.direction-r .flag,
-.direction-rb .flag {
-  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15),
-    0 0 1px rgba(0, 0, 0, 0.15);
-  -moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.15);
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.15);
-}
-
-.direction-l .flag:before,
-.direction-r .flag:before,
-.direction-lb .flag:before,
-.direction-rb .flag:before {
-  position: absolute;
-  top: 50%;
-  right: -40px;
-  content: " ";
-  display: block;
-  width: 12px;
-  height: 12px;
-  margin-top: -10px;
-  border-radius: 10px;
-  border: 4px solid rgb(30, 27, 155);
-  z-index: 10;
-}
-
-.direction-r .flag:before,
-.direction-rb .flag:before {
-  left: -40px;
-}
-
-/* Animation de clignotement pour le point du dernier élément */
-.current-item .direction-l .flag:before,
-.current-item .direction-lb .flag:before,
-.current-item .direction-r .flag:before,
-.current-item .direction-rb .flag:before {
-  animation: timelinePulse 1.5s infinite;
-}
-
-@keyframes timelinePulse {
+@keyframes rdTimelinePulse {
   0%,
   100% {
-    transform: scale(1); /* Taille normale */
-    border-color: rgb(30, 27, 155); /* Bleu foncé d'origine */
+    transform: scale(1);
+    background: #62b2ff;
   }
   50% {
-    transform: scale(1.2); /* Le point grandit légèrement */
-    border-color: rgb(100, 150, 255); /* Bleu plus clair */
+    transform: scale(1.25);
+    background: rgba(98, 178, 255, 0.55);
   }
 }
 
-.direction-l .flag:after,
-.direction-lb .flag:after {
-  content: "";
-  position: absolute;
-  left: 100%;
-  top: 50%;
-  height: 0;
-  width: 0;
-  margin-top: -8px;
-  border: solid transparent;
-  border-left-color: rgb(248, 248, 248);
-  border-width: 8px;
-  pointer-events: none;
+.rdTimelineContent {
+  width: 95%;
+  padding: 0 15px;
+  color: rgba(255, 255, 255, 0.82);
 }
 
-.direction-r .flag:after,
-.direction-rb .flag:after {
-  content: "";
-  position: absolute;
-  right: 100%;
-  top: 50%;
-  height: 0;
-  width: 0;
-  margin-top: -8px;
-  border: solid transparent;
-  border-right-color: rgb(248, 248, 248);
-  border-width: 8px;
-  pointer-events: none;
+.rdTimelineBlockLeft .rdTimelineContent {
+  text-align: right;
 }
 
-.time-wrapper {
-  display: inline;
-  line-height: 1em;
-  font-size: 0.66666em;
-  color: rgb(141, 172, 255);
-  vertical-align: middle;
+.rdTimelineContent h3 {
+  margin: 5px 0;
+  font-size: 22px;
+  font-weight: 500;
+  color: #fff;
 }
 
-.direction-l .time-wrapper,
-.direction-lb .time-wrapper {
-  float: left;
+.rdTimelineContent span {
+  font-size: 14px;
+  color: #62b2ff;
 }
 
-.direction-r .time-wrapper,
-.direction-rb .time-wrapper {
-  float: right;
-}
-
-.time {
-  display: inline-block;
-  padding: 4px 6px;
-}
-
-.desc {
-  margin: 1em 0.75em 0 0;
-  color: white;
-  font-size: 0.77777em;
-  font-style: italic;
+.rdTimelineContent p {
+  font-size: 14px;
   line-height: 1.5em;
+  word-spacing: 1px;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 10px 0 0;
 }
 
-.direction-r .desc,
-.direction-rb .desc {
-  margin: 1em 0 0 0.75em;
-}
+@media screen and (max-width: 768px) {
+  .rdTimelineContainer:before {
+    left: 8px;
+    width: 2px;
+  }
 
-/* ================ Timeline Media Queries ================ */
-
-@media screen and (max-width: 660px) {
-  .timeline {
+  .rdTimelineBlock {
     width: 100%;
-    padding: 4em 0 1em 0;
-  }
-
-  .timeline li {
-    padding: 2em 0;
-  }
-
-  .direction-l,
-  .direction-r,
-  .direction-lb,
-  .direction-rb {
-    float: none;
-    width: 100%;
-    text-align: center;
-  }
-
-  .flag-wrapper {
-    text-align: center;
-  }
-
-  .flag {
-    background: rgb(255, 255, 255);
-    z-index: 15;
-  }
-
-  .direction-l .flag:before,
-  .direction-r .flag:before,
-  .direction-lb .flag:before,
-  .direction-rb .flag:before {
-    position: absolute;
-    top: -30px;
-    left: 51%;
-    content: " ";
-    display: block;
-    width: 12px;
-    height: 12px;
-    margin-left: -9px;
-    border-radius: 10px;
-    border: 4px solid rgb(31, 52, 152);
-    z-index: 10;
-  }
-
-  /* Animation de clignotement pour mobile */
-  .current-item .direction-l .flag:before,
-  .current-item .direction-r .flag:before,
-  .current-item .direction-lb .flag:before,
-  .current-item .direction-rb .flag:before {
-    animation: timelinePulse 1.5s infinite;
-  }
-
-  .direction-l .flag:after,
-  .direction-r .flag:after,
-  .direction-lb .flag:after,
-  .direction-rb .flag:after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: -8px;
-    height: 0;
-    width: 0;
-    margin-left: -8px;
-    border: solid transparent;
-    border-bottom-color: rgb(255, 255, 255);
-    border-width: 8px;
-    pointer-events: none;
-  }
-
-  .time-wrapper {
-    display: block;
-    position: relative;
-    margin: 4px 0 0 0;
-    z-index: 14;
-  }
-
-  .direction-l .time-wrapper,
-  .direction-lb .time-wrapper {
+    margin-bottom: 30px;
     float: none;
   }
 
-  .direction-r .time-wrapper,
-  .direction-rb .time-wrapper {
-    float: none;
+  .rdTimelineBlockLeft,
+  .rdTimelineBlockRight {
+    flex-direction: row;
   }
 
-  .desc {
-    position: relative;
-    margin: 1em 0 0 0;
-    padding: 1em;
-    -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
-    z-index: 15;
+  .rdTimelineContent {
+    text-align: left;
   }
 
-  .direction-l .desc,
-  .direction-r .desc,
-  .direction-lb .desc,
-  .direction-rb .desc {
-    position: relative;
-    margin: 1em 1em 0 1em;
-    padding: 1em;
-    z-index: 15;
-  }
-
-  .direction-l {
-    left: 1px;
-  }
-
-  .direction-r {
-    right: -1px;
-  }
-
-  .direction-lb {
-    left: 0px;
-  }
-
-  .direction-rb {
-    right: 0px;
-  }
-}
-
-@media screen and (min-width: 400px) and (max-width: 660px) {
-  .direction-l .desc,
-  .direction-r .desc,
-  .direction-lb .desc,
-  .direction-rb .desc {
-    margin: 1em 4em 0 4em;
+  /* override de la règle desktop (.rdTimelineBlockLeft .rdTimelineContent { text-align:right }) */
+  .rdTimelineBlockLeft .rdTimelineContent {
+    text-align: left;
   }
 }

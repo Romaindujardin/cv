@@ -6,7 +6,6 @@ interface TimelineItem {
   title: string;
   period: string;
   description: string;
-  direction: "l" | "r" | "lb" | "rb";
 }
 
 const timelineData: TimelineItem[] = [
@@ -15,64 +14,71 @@ const timelineData: TimelineItem[] = [
     title: "Junia - ISEN",
     period: "2020 - Présent",
     description:
-      "Étudiant en 4ème année d'école d'ingénieur en IA, je conçois des solutions innovantes pour relever les défis technologiques.",
-    direction: "r",
+      "Étudiant en 5ème année d'école d'ingénieur en IA, je conçois des solutions innovantes pour relever les défis technologiques.",
   },
   {
     id: "2",
-    title: "Livreur Pharmaceutique",
-    period: "Septembre 2024 - Présent",
+    title: "Ingénieur traitement & analyse d'images par IA - Safran Ceramics",
+    period: "Septembre 2025 - Présent",
     description:
-      "Responsable de la livraison rapide et sécurisée de médicaments, garantissant le bien-être des patients grâce à un service fiable et professionnel.",
-    direction: "lb",
+      "Développement d’outils de vision par ordinateur pour l’analyse automatisée d’images microscopiques de CMC : détection et segmentation (YOLO), extraction de caractéristiques géométriques et quantification du taux de porosité. Contribution à des projets de R&T, de maintenance prédictive et d’automatisation des expertises laboratoire.",
   },
   {
     id: "3",
-    title: "Commis Foodtruck",
-    period: "Juin 2024 - Août 2024",
+    title: "Etudiant chercheur - UQAR",
+    period: "Mai 2025 - Aout 2025",
     description:
-      "Commis dans un foodtruck, j'ai optimisé le service client et contribué à un environnement de travail efficace et dynamique.",
-    direction: "rb",
+      "Conception d’un assistant pédagogique basé sur l’IA intégrant un moteur RAG, la génération d’exercices et le suivi pédagogique. Développement d’une architecture modulaire et sécurisée (FastAPI, Next.js, JWT), conteneurisée avec Apptainer et appuyée sur des bases de données relationnelles et vectorielles.",
   },
   {
     id: "4",
-    title: "Assistant Comptable",
-    period: "Juin 2022 - Août 2022",
+    title: "Livreur Pharmaceutique - CERP Rouen",
+    period: "Septembre 2024 - Avril 2025",
     description:
-      "Assistant comptable, j'ai assuré la saisie de données et la facturation, tout en renforçant l'esprit d'équipe.",
-    direction: "lb",
+      "Responsable de la livraison rapide et sécurisée de médicaments, garantissant le bien-être des patients grâce à un service fiable et professionnel.",
   },
   {
     id: "5",
-    title: "Opérateur de machine",
-    period: "Juin 2021 - Juillet 2021",
+    title: "Commis Foodtruck -Kamio",
+    period: "Juin 2024 - Août 2024",
     description:
-      "Opérateur de machine, j'ai résolu des problèmes techniques et assuré le bon fonctionnement de l'équipement dans un environnement dynamique.",
-    direction: "rb",
+      "Commis dans un foodtruck, j'ai optimisé le service client et contribué à un environnement de travail efficace et dynamique.",
   },
   {
     id: "6",
-    title: "Assistant Comptable",
-    period: "Juillet 2020 - Septembre 2020",
+    title: "Assistant Comptable - R2S",
+    period: "Juin 2022 - Août 2022",
     description:
-      "Assistant comptable, j'ai géré la saisie de données et la facturation tout en favorisant une collaboration efficace au sein de l'équipe.",
-    direction: "lb",
+      "Assistant comptable, j'ai assuré la saisie de données et la facturation, tout en renforçant l'esprit d'équipe.",
   },
   {
     id: "7",
-    title: "Stage Orange",
+    title: "Opérateur de machine - Beaulieu",
+    period: "Juin 2021 - Juillet 2021",
+    description:
+      "Opérateur de machine, j'ai résolu des problèmes techniques et assuré le bon fonctionnement de l'équipement dans un environnement dynamique.",
+  },
+  {
+    id: "8",
+    title: "Assistant Comptable - R2S",
+    period: "Juillet 2020 - Septembre 2020",
+    description:
+      "Assistant comptable, j'ai géré la saisie de données et la facturation tout en favorisant une collaboration efficace au sein de l'équipe.",
+  },
+  {
+    id: "9",
+    title: "Stage - Orange",
     period: "2017",
     description:
       "Stage d'observation chez Orange, où j'ai acquis une vision concrète des innovations technologiques et des pratiques de l'industrie.",
-    direction: "r",
   },
 ];
 
 const Timeline: React.FC = () => {
   return (
-    <section id="section2" className="timeline-section">
-      <h1 style={{ color: "white", marginLeft: "5%" }}>
-        Timeline
+    <section id="section2" className="rdTimelineSection">
+      <h1 style={{ color: "white", marginLeft: "5%", marginBottom: "4%" }}>
+        Mon parcours
         <svg
           stroke="#62B2FF"
           fill=""
@@ -88,22 +94,28 @@ const Timeline: React.FC = () => {
           </g>
         </svg>
       </h1>
-      <div className="all">
-        <ul className="timeline">
-          {timelineData.map((item, index) => (
-            <li key={item.id} className={index === 0 ? "current-item" : ""}>
-              <div className={`direction-${item.direction}`}>
-                <div className="flag-wrapper">
-                  <span className="flag">{item.title}</span>
-                  <span className="time-wrapper">
-                    <span className="time">{item.period}</span>
-                  </span>
-                </div>
-                <div className="desc">{item.description}</div>
+
+      <div className="rdTimelineContainer">
+        {timelineData.map((item, idx) => {
+          const sideClass =
+            idx % 2 === 0 ? "rdTimelineBlockRight" : "rdTimelineBlockLeft";
+          const isFirst = idx === 0;
+          return (
+            <div
+              key={item.id}
+              className={`rdTimelineBlock ${sideClass} ${
+                isFirst ? "rdTimelineCurrent" : ""
+              }`}
+            >
+              <div className="rdTimelineMarker" aria-hidden="true" />
+              <div className="rdTimelineContent">
+                <h3>{item.title}</h3>
+                <span>{item.period}</span>
+                <p>{item.description}</p>
               </div>
-            </li>
-          ))}
-        </ul>
+            </div>
+          );
+        })}
       </div>
     </section>
   );

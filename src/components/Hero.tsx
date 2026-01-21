@@ -87,16 +87,16 @@ const Hero: React.FC = () => {
             onMouseLeave={handleMouseLeave}
           />
         </span>{" "}
-        en 4eme année. Je suis à la recherche d'une{" "}
+        en 5eme année. Je suis en contrat de professionnalisation à {" "}
         <strong
           style={{
             textDecoration: "underline",
             textDecorationColor: "#62B2FF",
           }}
         >
-          alternance d'un an
+          Safran Ceramics
         </strong>
-        .
+        . Et je suis à l'écoute de nouvelles opportunités en CDI dans la vue de mon obtention du diplôme d'ingénieur.
       </p>
     </section>
   );

@@ -14,11 +14,21 @@ interface Particle {
   color: string;
 }
 
-const ParticleCanvas: React.FC = () => {
+type ParticleCanvasMode = "default" | "welcome";
+
+type ParticleCanvasProps = {
+  mode?: ParticleCanvasMode;
+};
+
+const ParticleCanvas: React.FC<ParticleCanvasProps> = ({
+  mode = "default",
+}) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Particle[]>([]);
   const mouseCoordRef = useRef({ x: 0, y: 0 });
   const previousMouseCoordRef = useRef({ x: 0, y: 0 });
+  const modeRef = useRef<ParticleCanvasMode>(mode);
+  const rafIdRef = useRef<number | null>(null);
 
   const random = (min: number, max: number): number => {
     return Math.round(Math.random() * (max - min) + min);
@@ -131,21 +141,76 @@ const ParticleCanvas: React.FC = () => {
     canvas.width = canvas.getBoundingClientRect().width;
 
     context.clearRect(0, 0, canvas.width, canvas.height);
-    context.font = "bold " + canvas.width / 8 + "px sans-serif";
     context.fillStyle = getCssVar("--scene-background") || "black";
-    context.textAlign = "left";
 
-    const marginTop404 = 200;
-    const marginTopOthersubtitle = 350;
-    const marginTopSubtitle = 500;
+    const getTextMetrics = (text: string, fontSizePx: number) => {
+      const metrics = context.measureText(text);
+      const ascent =
+        metrics.actualBoundingBoxAscent ?? Math.round(fontSizePx * 0.8);
+      const descent =
+        metrics.actualBoundingBoxDescent ?? Math.round(fontSizePx * 0.2);
+      return { ascent, descent, height: ascent + descent };
+    };
 
-    context.fillText("Étudiant", 50, marginTop404);
+    // Le canvas fait 120vh; si on centre sur canvas.height/2, le texte paraît "trop bas"
+    // dans le viewport. On centre donc par rapport au viewport (clamp si besoin).
+    const viewportHeight = Math.min(canvas.height, window.innerHeight);
+    const viewportCenterY = viewportHeight / 2;
+    // Petit ajustement visuel vers le haut (le rendu canvas paraît souvent "un peu bas")
+    const nudgeUpPx =
+      Math.round(Math.min(28, Math.max(12, viewportHeight * 0.02))) + 50;
+    const targetCenterY = viewportCenterY - nudgeUpPx;
 
-    context.font = "bold " + canvas.width / 9 + "px sans-serif";
-    context.fillText("Ingénieur IA", 50, marginTopOthersubtitle);
+    if (modeRef.current === "welcome") {
+      context.textAlign = "center";
+      context.textBaseline = "alphabetic";
+      const size = canvas.width / 6;
+      context.font = "bold " + size + "px sans-serif";
 
-    context.font = canvas.width / 14 + "px sans-serif";
-    context.fillText("- JUNIA ISEN", 50, marginTopSubtitle);
+      const { ascent, descent } = getTextMetrics("WELCOME", size);
+      const baselineY = targetCenterY + Math.round((ascent - descent) / 2);
+      context.fillText("WELCOME", canvas.width / 2, baselineY);
+    } else {
+      context.textAlign = "center";
+      context.textBaseline = "alphabetic";
+
+      const size1 = canvas.width / 8;
+      const size2 = canvas.width / 9;
+      const size3 = canvas.width / 14;
+      const gap = Math.max(12, canvas.width / 40);
+
+      const cx = canvas.width / 2;
+      const cy = targetCenterY;
+
+      const line1 = "Ingénieur IA";
+      const line2 = "";
+      const line3 = "Septembre 2026";
+
+      context.font = "bold " + size1 + "px sans-serif";
+      const m1 = getTextMetrics(line1, size1);
+
+      context.font = "bold " + size2 + "px sans-serif";
+      const m2 = getTextMetrics(line2, size2);
+
+      context.font = size3 + "px sans-serif";
+      const m3 = getTextMetrics(line3, size3);
+
+      const totalHeight = m1.height + gap + m2.height + gap + m3.height;
+      const topY = cy - totalHeight / 2;
+
+      const baseline1 = topY + m1.ascent;
+      const baseline2 = baseline1 + m1.descent + gap + m2.ascent;
+      const baseline3 = baseline2 + m2.descent + gap + m3.ascent;
+
+      context.font = "bold " + size1 + "px sans-serif";
+      context.fillText(line1, cx, baseline1);
+
+      context.font = "bold " + size2 + "px sans-serif";
+      context.fillText(line2, cx, baseline2);
+
+      context.font = size3 + "px sans-serif";
+      context.fillText(line3, cx, baseline3);
+    }
 
     const imageData = context.getImageData(
       0,
@@ -188,7 +253,7 @@ const ParticleCanvas: React.FC = () => {
       renderParticle(particle, isDisableMouse);
     });
 
-    requestAnimationFrame(renderScene);
+    rafIdRef.current = requestAnimationFrame(renderScene);
   };
 
   useEffect(() => {
@@ -213,8 +278,16 @@ const ParticleCanvas: React.FC = () => {
       window.removeEventListener("touchmove", onTouchMove);
       window.removeEventListener("touchend", onTouchEnd);
       window.removeEventListener("resize", handleResize);
+      if (rafIdRef.current != null) {
+        cancelAnimationFrame(rafIdRef.current);
+      }
     };
   }, []);
+
+  useEffect(() => {
+    modeRef.current = mode;
+    initScene();
+  }, [mode]);
 
   return <canvas id="scene" ref={canvasRef} />;
 };

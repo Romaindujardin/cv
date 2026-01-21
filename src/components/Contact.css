@@ -48,31 +48,64 @@
 
 .button-column {
   flex-direction: column;
-  width: 50%;
-  margin-right: 4%;
+  width: 40%;
   display: flex;
   justify-content: space-between;
+  height: 400px;
 }
 
 .button-column button {
   width: 100%;
-  margin-bottom: 45px;
+  flex: 1;
   text-align: left;
   border-radius: 50px;
   padding: 5%;
+  margin-bottom: 12px;
+}
+
+.button-column button:last-child {
+  margin-bottom: 0;
+}
+
+.blob-container {
+  width: 60%;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-left: 50%;
+}
+
+.blob-container .blobOrbitSection {
+  padding: 0;
+}
+
+.blob-container .blobOrbitWrap {
+  width: auto;
+  height: auto;
+}
+
+.blob-container .blobOrbitSvg {
+  width: 400px;
+  height: 400px;
 }
 
 /* Responsive styles */
 @media (max-width: 1000px) {
   .container {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .text-container,
   .button-container {
     width: 100%;
     margin: 0;
+  }
+
+  .text-container {
+    display: flex;
+    justify-content: center;
   }
 
   .text-container h1 {
@@ -87,11 +120,30 @@
   }
 
   .button-column {
-    width: 90%;
+    width: 70%;
+    max-width: 350px;
     margin-right: 0;
+    height: auto;
+    margin-bottom: 30px;
   }
 
   .button-column button {
     font-size: 1em;
+    flex: none;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .blob-container {
+    width: 100%;
+    height: 320px;
+    justify-content: center;
+    padding-left: 0;
+  }
+
+  .blob-container .blobOrbitSvg {
+    width: 320px;
+    height: 320px;
   }
 }

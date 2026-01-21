@@ -1,0 +1,381 @@
+/* Conteneur de la carte vedette - occupe un vrai espace */
+.rdFeaturedContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px 60px;
+  position: relative;
+  z-index: 10;
+}
+
+.rdFeaturedTitle {
+  color: white;
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 600;
+  margin: 0 0 40px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  align-self: flex-start;
+  margin-left: 5%;
+}
+
+.rdFeaturedTitle svg {
+  flex-shrink: 0;
+}
+
+/* Override pour la carte vedette - doit être dans le flux normal */
+.rdFeaturedContainer .rdGalleryCard.rdWheelCardFeatured {
+  position: static;
+  border: 2px solid #62B2FF;
+  box-shadow: 0 8px 32px rgba(98, 178, 255, 0.2);
+}
+
+.rdFeaturedContainer .rdGalleryCard.rdWheelCardFeatured:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 48px rgba(98, 178, 255, 0.3);
+}
+
+/* Section de la galerie horizontale */
+.rdGallerySection {
+  width: 100%;
+  padding: 60px 0;
+  position: relative;
+}
+
+.rdGalleryContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  padding: 0 60px;
+}
+
+.rdGallery {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  flex: 1;
+  padding: 20px 0;
+  scroll-snap-type: x mandatory;
+}
+
+.rdGallery::-webkit-scrollbar {
+  display: none;
+}
+
+.rdGalleryCard {
+  --card-border-radius: 14px;
+  position: relative;
+  width: calc((100% - 40px) / 3); /* 3 cartes visibles + 2 gaps de 20px */
+  min-width: 0;
+  aspect-ratio: 4 / 5;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--card-border-radius);
+  overflow: hidden;
+  background-color: #333;
+  transition: transform 0.25s ease, filter 0.25s ease;
+  flex-shrink: 0;
+  scroll-snap-align: center;
+}
+
+.rdGallery:not(.rdGalleryScrolling) .rdGalleryCard:hover {
+  transform: scale(1.05);
+  filter: brightness(1.12);
+}
+
+.rdGalleryCard:focus {
+  outline: none;
+}
+
+.rdGalleryCard:focus-visible {
+  outline: 2px solid #62B2FF;
+  outline-offset: 4px;
+}
+
+.rdWheelCardMedia {
+  width: 100%;
+  flex: 0 0 50%;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.rdWheelCardMediaCenter {
+  align-items: center;
+  background-color: #2a2a2a;
+}
+
+.rdWheelCardMediaEmpty {
+  align-items: center;
+  justify-content: center;
+  background-color: #2a2a2a;
+}
+
+.rdWheelCardMedia img,
+.rdWheelCardMedia video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  display: block;
+}
+
+.rdWheelCardPlaceholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  height: 60%;
+  color: rgba(98, 178, 255, 0.4);
+}
+
+.rdWheelCardPlaceholder svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Webcam styles */
+.rdWheelCardWebcam {
+  cursor: default;
+}
+
+.rdWebcamVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+  display: block;
+}
+
+.rdWebcamStart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: #2a2a2a;
+}
+
+.rdWebcamPlayBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: 1px solid rgba(98, 178, 255, 0.4);
+  border-radius: 8px;
+  background: transparent;
+  color: #62B2FF;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.rdWebcamPlayBtn:hover {
+  background: rgba(98, 178, 255, 0.1);
+  border-color: rgba(98, 178, 255, 0.6);
+}
+
+.rdWebcamPlayBtn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.rdWebcamPlaceholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: rgba(98, 178, 255, 0.6);
+  gap: 12px;
+  background-color: #2a2a2a;
+}
+
+.rdWebcamPlaceholder svg {
+  width: 48px;
+  height: 48px;
+}
+
+.rdWebcamPlaceholder span {
+  font-size: 14px;
+  text-align: center;
+}
+
+.rdWheelCardContent {
+  flex: 0 0 33.33%;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  overflow: hidden;
+}
+
+.rdWheelCardTitle {
+  color: #fff;
+  font-size: clamp(14px, 2.5vmin, 18px);
+  font-weight: 600;
+  margin: 0;
+}
+
+.rdWheelCardDescription {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: clamp(11px, 1.8vmin, 14px);
+  line-height: 1.4;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+}
+
+.rdWheelCardTags {
+  flex: 0 0 16.67%;
+  padding: 8px 16px 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: flex-start;
+  overflow-y: auto;
+}
+
+.rdWheelCardTag {
+  display: inline-block;
+  padding: 4px 10px;
+  background-color: rgba(98, 178, 255, 0.15);
+  color: #62B2FF;
+  border: 1px solid rgba(98, 178, 255, 0.3);
+  border-radius: 12px;
+  font-size: clamp(10px, 1.5vmin, 12px);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Boutons de navigation */
+.rdGalleryNavButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.3s ease;
+  padding: 0;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.rdGalleryNavButton:hover:not(:disabled) {
+  transform: translateY(-50%) scale(1.1);
+  color: #62B2FF;
+}
+
+.rdGalleryNavButton:focus {
+  outline: none;
+}
+
+.rdGalleryNavButton:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.rdGalleryNavButton:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.rdGalleryNavButton svg {
+  width: 24px;
+  height: 24px;
+}
+
+.rdGalleryNavLeft {
+  left: 10px;
+}
+
+.rdGalleryNavRight {
+  right: 10px;
+}
+
+@media (max-width: 768px) {
+  .rdFeaturedContainer {
+    padding: 30px 16px 40px;
+  }
+
+  .rdFeaturedTitle {
+    font-size: clamp(20px, 5vw, 28px);
+    margin-bottom: 30px;
+  }
+
+  .rdGallerySection {
+    padding: 40px 0;
+  }
+
+  .rdGalleryContainer {
+    padding: 0 20px;
+  }
+
+  .rdGallery {
+    gap: 20px;
+    padding: 20px calc(50% - 160px);
+    scroll-padding: 0 calc(50% - 160px);
+  }
+
+  .rdGalleryCard {
+    width: calc(100% - 40px);
+    max-width: 320px;
+    min-width: 280px;
+    scroll-snap-align: center;
+  }
+
+  .rdGalleryNavButton {
+    width: 32px;
+    height: 32px;
+  }
+
+  .rdGalleryNavButton svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .rdGalleryNavLeft {
+    left: 5px;
+  }
+
+  .rdGalleryNavRight {
+    right: 5px;
+  }
+
+  .rdWheelCardContent {
+    padding: 12px;
+    gap: 6px;
+  }
+
+  .rdWheelCardTitle {
+    font-size: clamp(12px, 3vmin, 16px);
+  }
+
+  .rdWheelCardDescription {
+    font-size: clamp(10px, 2.2vmin, 12px);
+    -webkit-line-clamp: 2;
+  }
+}
