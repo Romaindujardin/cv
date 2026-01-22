@@ -6,7 +6,7 @@ const Contact: React.FC = () => {
   const handleContactClick = (action: string) => {
     switch (action) {
       case "cv":
-        window.open("./img/cv.pdf", "_blank");
+        window.open("./img/CV.pdf", "_blank");
         break;
       case "email":
         window.open("mailto:dujardin.romain@icloud.com", "_blank");
