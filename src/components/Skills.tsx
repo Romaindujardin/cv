@@ -90,10 +90,7 @@ const Skills: React.FC = () => {
           </g>
         </svg>
       </h1>
-      <div
-        className="containercomp"
-        style={{ marginBottom: "8%", paddingLeft: "15%", paddingRight: "15%" }}
-      >
+      <div className="containercomp">
         {skillsData.map((skill) => (
           <div key={skill.id} className="cardcomp">
             <div className="skill-icon-wrapper">

@@ -124,11 +124,32 @@
   }
 
   .rdTimelineContent {
+    width: calc(100% - 24px);
+    margin-left: 8px;
     text-align: left;
   }
 
   /* override de la règle desktop (.rdTimelineBlockLeft .rdTimelineContent { text-align:right }) */
   .rdTimelineBlockLeft .rdTimelineContent {
     text-align: left;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .rdTimelineSection {
+    padding: 42px 0;
+  }
+
+  .rdTimelineContainer {
+    width: calc(100% - 24px);
+    padding: 18px 0;
+  }
+
+  .rdTimelineContent {
+    padding: 0 8px;
+  }
+
+  .rdTimelineContent h3 {
+    font-size: 1.1rem;
   }
 }

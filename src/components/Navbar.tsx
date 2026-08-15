@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 
 const Navbar: React.FC = () => {
@@ -11,6 +11,20 @@ const Navbar: React.FC = () => {
   const closeOverlay = () => {
     setIsOverlayOpen(false);
   };
+
+  useEffect(() => {
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeOverlay();
+    };
+
+    document.addEventListener("keydown", closeOnEscape);
+    document.body.classList.toggle("noscroll", isOverlayOpen);
+
+    return () => {
+      document.removeEventListener("keydown", closeOnEscape);
+      document.body.classList.remove("noscroll");
+    };
+  }, [isOverlayOpen]);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -27,7 +41,7 @@ const Navbar: React.FC = () => {
           <a
             className="navbar-brand btn-flip"
             style={{ fontSize: "130%" }}
-            href="#"
+            href="#top"
             data-back="Romain DUJARDIN"
             data-front="Romain DUJARDIN"
           ></a>
@@ -38,6 +52,9 @@ const Navbar: React.FC = () => {
             className="navbar-toggler ml-auto custom-toggler"
             type="button"
             onClick={toggleOverlay}
+            aria-controls="mobile-navigation"
+            aria-expanded={isOverlayOpen}
+            aria-label={isOverlayOpen ? "Fermer le menu" : "Ouvrir le menu"}
           >
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -74,7 +91,7 @@ const Navbar: React.FC = () => {
       </nav>
 
       {isOverlayOpen && (
-        <div className="overlay" style={{ display: "flex" }}>
+        <div id="mobile-navigation" className="overlay" style={{ display: "flex" }}>
           <div className="overlay-content">
             <a
               className="navbar-brand btn-flip overlay-link"

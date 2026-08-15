@@ -132,18 +132,87 @@
 
 /* Media query pour les petits écrans */
 @media (max-width: 768px) {
+  .navbar {
+    min-height: 56px;
+    padding: 0.45rem 0.65rem;
+  }
+
+  .container-fluid {
+    flex-wrap: nowrap;
+    padding: 0;
+  }
+
   .navbar-brand {
-    font-size: 10px; /* Réduire la taille de la police pour l'adapter */
-    padding: 5px;
+    margin-right: 0;
+    padding: 0;
   }
 
   .btn-flip {
-    line-height: 25px;
-    font-size: 8px; /* Réduire la taille du texte pour qu'il reste lisible */
-    padding: 0 15px;
+    line-height: 28px;
+    font-size: 0.72rem !important;
+    letter-spacing: 0.04em;
+    padding: 0;
+  }
+
+  .btn-flip:before {
+    padding: 0 0.35rem;
+    line-height: 28px;
+  }
+
+  .status-indicator {
+    width: 8px;
+    height: 8px;
+    margin-left: 0.35rem;
+  }
+
+  .status-text {
+    margin-left: 0.3rem;
+    font-size: 0.72rem;
+  }
+
+  .custom-toggler.navbar-toggler {
+    padding: 0.28rem 0.45rem;
+    margin-left: auto;
+  }
+
+  .overlay {
+    padding: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.92);
+  }
+
+  .overlay-content {
+    width: min(100%, 360px);
+  }
+
+  .overlay-link {
+    width: 100%;
+    margin: 0.2rem 0;
+    font-size: 1.35rem !important;
+    text-align: center;
+  }
+
+  .overlay-link:before {
+    padding: 0.6rem;
+    line-height: 1.5;
+  }
+
+  .close-overlay {
+    width: 100%;
+    max-width: 240px;
+    margin-top: 1.25rem;
   }
 
   .form-inline {
     display: block; /* Permet aux éléments de se placer en colonne pour petits écrans */
+  }
+}
+
+@media (max-width: 360px) {
+  .btn-flip {
+    font-size: 0.64rem !important;
+  }
+
+  .status-text {
+    font-size: 0.65rem;
   }
 }

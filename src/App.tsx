@@ -19,7 +19,7 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="app">
+    <div className="app" id="top">
       <Navbar />
       <section className="particles-section">
         <ParticleCanvas mode={showWelcomeParticles ? "welcome" : "default"} />

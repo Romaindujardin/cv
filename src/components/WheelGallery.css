@@ -379,3 +379,28 @@
     -webkit-line-clamp: 2;
   }
 }
+
+@media (max-width: 420px) {
+  .rdFeaturedContainer {
+    padding: 26px 12px 32px;
+  }
+
+  .rdGalleryContainer {
+    padding: 0 12px;
+  }
+
+  .rdGallery {
+    gap: 12px;
+    padding: 16px calc(50% - 140px);
+    scroll-padding: 0 calc(50% - 140px);
+  }
+
+  .rdGalleryCard {
+    width: min(82vw, 280px);
+    min-width: 250px;
+  }
+
+  .rdWheelCardTags {
+    padding: 8px 12px 12px;
+  }
+}

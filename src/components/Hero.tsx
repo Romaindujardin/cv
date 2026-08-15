@@ -44,6 +44,7 @@ const Hero: React.FC = () => {
         </svg>
       </h1>
       <p
+        className="hero-introduction"
         style={{
           color: "white",
           textAlign: "center",

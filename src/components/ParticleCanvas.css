@@ -8,9 +8,15 @@
 
 #scene {
   height: 120vh;
-  width: 100vw;
+  width: 100%;
   top: 0;
   left: 0;
   position: relative;
   z-index: 0;
+}
+
+@media (max-width: 768px) {
+  #scene {
+    height: 100%;
+  }
 }

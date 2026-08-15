@@ -8,7 +8,8 @@
   flex-wrap: wrap;
   gap: 2px;
   justify-content: center;
-  padding: 20px;
+  padding: 20px 15%;
+  margin-bottom: 8%;
 }
 
 .cardcomp {
@@ -62,4 +63,24 @@
   margin-top: 10px;
   font-size: 16px;
   color: #fff; /* Change text color to white */
+}
+
+@media (max-width: 768px) {
+  .containercomp {
+    padding: 16px 5%;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 360px) {
+  .containercomp {
+    padding: 12px;
+    gap: 6px;
+  }
+
+  .cardcomp {
+    width: calc(50% - 3px);
+    height: auto;
+    aspect-ratio: 1;
+  }
 }

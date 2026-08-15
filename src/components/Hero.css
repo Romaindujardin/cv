@@ -7,11 +7,45 @@
   transition: transform 0.3s ease;
 }
 
-.hover-zoom:hover {
-  transform: scale(2.5);
+@media (hover: hover) and (pointer: fine) {
+  .hover-zoom:hover {
+    transform: scale(2.5);
+  }
 }
 
 .image-container {
   display: inline-block;
   vertical-align: middle;
+}
+
+.image-container img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .hero-introduction {
+    width: min(100% - 2rem, 44rem);
+    margin: 3.5rem auto 4.5rem !important;
+    padding: 0 !important;
+    font-size: clamp(1.1rem, 5vw, 1.35rem) !important;
+    line-height: 1.7;
+  }
+
+  .hero-introduction .image-container img {
+    max-width: 72px;
+    height: auto;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero-introduction {
+    width: min(100% - 1.5rem, 44rem);
+    margin-top: 2.75rem !important;
+    margin-bottom: 3.5rem !important;
+  }
+
+  .hero-introduction .image-container img {
+    max-width: 58px;
+  }
 }
