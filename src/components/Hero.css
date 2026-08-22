@@ -3,6 +3,12 @@
   z-index: 1;
 }
 
+.hero-highlight {
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: #62B2FF;
+}
+
 .hover-zoom {
   transition: transform 0.3s ease;
 }
@@ -16,11 +22,21 @@
 .image-container {
   display: inline-block;
   vertical-align: middle;
+  margin: 0 4px;
 }
 
 .image-container img {
   max-width: 100%;
   object-fit: cover;
+  box-sizing: border-box;
+}
+
+.hero-introduction p {
+  margin-bottom: 1.5rem;
+}
+
+.hero-introduction p:last-child {
+  margin-bottom: 0;
 }
 
 @media (max-width: 768px) {
@@ -49,3 +65,4 @@
     max-width: 58px;
   }
 }
+

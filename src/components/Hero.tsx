@@ -43,7 +43,7 @@ const Hero: React.FC = () => {
           </g>
         </svg>
       </h1>
-      <p
+      <div
         className="hero-introduction"
         style={{
           color: "white",
@@ -51,77 +51,151 @@ const Hero: React.FC = () => {
           fontSize: "1.5em",
           margin: "5em 10%",
           padding: "0 5%",
+          lineHeight: "1.8",
         }}
       >
-        Bonjour, je m'appelle{" "}
-        <span className="image-container">
-          <img
-            className="hover-zoom tilt-image"
-            style={{ borderRadius: "15px" }}
-            height="60"
-            width="60"
-            src="./img/romain.png"
-            alt="Romain"
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-          />
-        </span>{" "}
-        Romain, je suis étudiant français en{" "}
-        <strong
-          style={{
-            textDecoration: "underline",
-            textDecorationColor: "#62B2FF",
-          }}
-        >
-          intelligence artificielle
-        </strong>{" "}
-        à Junia{" "}
-        <span className="image-container">
-          <img
-            className="hover-zoom tilt-image"
-            style={{ borderRadius: "15px" }}
-            height="50"
-            width="100"
-            src="./img/images.jpeg"
-            alt="Junia"
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-          />
-        </span>{" "}
-        en 5eme année d'école d'ingénieur. 
-        Je réalise actuellement mon contrat de professionnalisation chez{" "}
-        <strong
-          style={{
-            textDecoration: "underline",
-            textDecorationColor: "#62B2FF",
-          }}
-        >
-          Safran Ceramics{" "}
-        </strong>
-        <span className="image-container">
-          <img
-            className="hover-zoom tilt-image"
-            style={{ borderRadius: "15px" }}
-            height="50"
-            width="100"
-            src="./img/safran.jpg"
-            alt="Romain"
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-          />
-        </span>{" "}
-        , où je développe des solutions d’IA appliquées à l’analyse d’images et à l’industrialisation.
-        Je recherche aujourd’hui un{" "}
-        <strong
-          style={{
-            textDecoration: "underline",
-            textDecorationColor: "#62B2FF",
-          }}
-        >
-          CDI en intelligence artificielle  
-        </strong> 
-        {" "}en vue de l’obtention de mon diplôme d’ingénieur.
-      </p>
+        <p>
+          Bonjour, je m'appelle{" "}
+          <strong
+            className="hero-highlight"
+            style={{
+              textDecoration: "underline",
+              textDecorationColor: "#62B2FF",
+            }}
+          >
+            Romain
+          </strong>{" "}
+          <span className="image-container">
+            <img
+              className="hover-zoom tilt-image"
+              style={{ borderRadius: "15px" }}
+              height="60"
+              width="60"
+              src="./img/romain.png"
+              alt="Romain"
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+            />
+          </span>
+          .
+        </p>
+        <p>
+          Je suis{" "}
+          <strong
+            className="hero-highlight"
+            style={{
+              textDecoration: "underline",
+              textDecorationColor: "#62B2FF",
+            }}
+          >
+            ingénieur IA
+          </strong>
+          , diplômé de <strong>JUNIA ISEN</strong>{" "}
+          <span className="image-container">
+            <img
+              className="hover-zoom tilt-image"
+              style={{ borderRadius: "15px" }}
+              height="50"
+              width="100"
+              src="./img/images.jpeg"
+              alt="JUNIA ISEN"
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+            />
+          </span>
+          , avec une spécialisation en{" "}
+          <strong
+            className="hero-highlight"
+            style={{
+              textDecoration: "underline",
+              textDecorationColor: "#62B2FF",
+            }}
+          >
+            Computer Vision
+          </strong>
+          ,{" "}
+          <strong
+            className="hero-highlight"
+            style={{
+              textDecoration: "underline",
+              textDecorationColor: "#62B2FF",
+            }}
+          >
+            IA générative
+          </strong>{" "}
+          et{" "}
+          <strong
+            className="hero-highlight"
+            style={{
+              textDecoration: "underline",
+              textDecorationColor: "#62B2FF",
+            }}
+          >
+            systèmes agentiques
+          </strong>
+          .
+        </p>
+        <p>
+          Au cours de mes expériences en R&D industrielle et en recherche
+          appliquée, notamment chez <strong>Safran Ceramics</strong>{" "}
+          <span className="image-container">
+            <img
+              className="hover-zoom tilt-image"
+              style={{ borderRadius: "15px" }}
+              height="50"
+              width="100"
+              src="./img/safran.jpg"
+              alt="Safran Ceramics"
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+            />
+          </span>{" "}
+          et à <strong>l’UQAR</strong>{" "}
+          <span className="image-container">
+            <img
+              className="hover-zoom tilt-image"
+              style={{
+                borderRadius: "15px",
+                backgroundColor: "#ffffff",
+                padding: "6px 8px",
+                objectFit: "contain",
+              }}
+              height="50"
+              width="100"
+              src="./img/uqar.svg"
+              alt="UQAR"
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+            />
+          </span>
+          , j’ai conçu et développé des solutions d’IA allant de la conception
+          des modèles jusqu’à leur{" "}
+          <strong>industrialisation et leur déploiement</strong>.
+        </p>
+        <p>
+          Je recherche aujourd’hui un{" "}
+          <strong
+            className="hero-highlight"
+            style={{
+              textDecoration: "underline",
+              textDecorationColor: "#62B2FF",
+            }}
+          >
+            CDI en Intelligence Artificielle
+          </strong>
+          , avec un intérêt particulier pour les problématiques de{" "}
+          <strong
+            className="hero-highlight"
+            style={{
+              textDecoration: "underline",
+              textDecorationColor: "#62B2FF",
+            }}
+          >
+            Computer Vision, GenAI et MLOps
+          </strong>
+          .
+        </p>
+      </div>
     </section>
   );
 };
