@@ -14,21 +14,21 @@ const timelineData: TimelineItem[] = [
     title: "Junia - ISEN",
     period: "2020 - Présent",
     description:
-      "Étudiant en 5ème année d'école d'ingénieur en IA, je conçois des solutions innovantes pour relever les défis technologiques.",
+      "Formation d’ingénieur spécialisée en Intelligence Artificielle, avec une expertise en Deep Learning, Computer Vision, Machine Learning et IA générative. Projets autour des LLM, RAG, systèmes agentiques et Reinforcement Learning.",
   },
   {
     id: "2",
     title: "Ingénieur traitement & analyse d'images par IA - Safran Ceramics",
     period: "Septembre 2025 - Présent",
     description:
-      "Développement d’outils de vision par ordinateur pour l’analyse automatisée d’images microscopiques de CMC : détection et segmentation (YOLO), extraction de caractéristiques géométriques et quantification du taux de porosité. Contribution à des projets de R&T, de maintenance prédictive et d’automatisation des expertises laboratoire.",
+      "Développement de solutions de Computer Vision pour l’analyse automatisée d’images microscopiques de matériaux CMC, de la détection et segmentation YOLO à la quantification des phases. Industrialisation et déploiement des outils sur OpenShift, avec Quay et Artifactory. Contribution à des projets de R&T, maintenance prédictive et automatisation des expertises laboratoire.",
   },
   {
     id: "3",
     title: "Etudiant chercheur - UQAR",
     period: "Mai 2025 - Aout 2025",
     description:
-      "Conception d’un assistant pédagogique basé sur l’IA intégrant un moteur RAG, la génération d’exercices et le suivi pédagogique. Développement d’une architecture modulaire et sécurisée (FastAPI, Next.js, JWT), conteneurisée avec Apptainer et appuyée sur des bases de données relationnelles et vectorielles.",
+      "Conception d’une plateforme agentique dédiée à l’usage de l’IA dans l’enseignement, intégrant RAG, génération d’exercices et suivi pédagogique. Développement d’une architecture sécurisée et conteneurisée avec FastAPI, Next.js, PostgreSQL, ChromaDB, JWT, Apptainer et Ollama.",
   },
   {
     id: "4",
@@ -39,7 +39,7 @@ const timelineData: TimelineItem[] = [
   },
   {
     id: "5",
-    title: "Commis Foodtruck -Kamio",
+    title: "Commis Foodtruck - Kamio",
     period: "Juin 2024 - Août 2024",
     description:
       "Commis dans un foodtruck, j'ai optimisé le service client et contribué à un environnement de travail efficace et dynamique.",
