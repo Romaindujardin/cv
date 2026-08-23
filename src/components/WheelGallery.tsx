@@ -6,6 +6,7 @@ interface ProjectItem {
   title: string;
   description: string;
   image?: string;
+  images?: string[];
   link: string;
   isVideo?: boolean;
   centerImage?: boolean;
@@ -24,20 +25,28 @@ interface ProjectItem {
 //   tags: ["Webcam", "IA", "Temps réel"],
 // };
 
-// Projets de la galerie (5 cartes)
+// Projets de la galerie (14 cartes triées par pertinence et impact)
 const PROJECTS: ProjectItem[] = [
   {
     id: "1",
-    title: "Project F.R.A.N.K",
+    title: "UQAR-chatbot",
     description:
-      "Jeu FPS 3D d'horreur et d'énigmes sous Unity (C#). Intègre un système d'inventaire et une IA ennemie adaptative (NavMesh) traquant le joueur selon ses déplacements.",
-    image: "./img/ProjectFRANK.mp4",
-    link: "https://github.com/Project-Group-3D/Project-F.R.A.N.K",
-    isVideo: true,
-    tags: ["Unity 3D", "C#", "NavMesh", "IA Ennemie"],
+      "Plateforme éducative agentique locale déployée sur cluster HPC (UQAR). Génération d'exercices adaptatifs selon le niveau de chaque étudiant, révision sur cours (RAG) et retours personnalisés aux enseignants.",
+    image: "./img/uqar.svg",
+    centerImage: true,
+    link: "https://github.com/Romaindujardin/UQAR-chatbot",
+    tags: ["IA Agentique", "FastAPI / Next.js", "RAG / ChromaDB", "LLaMA 3.1 (Ollama)", "HPC Apptainer"],
   },
   {
     id: "2",
+    title: "ComputeLLM",
+    description:
+      "Suite de benchmark multiplateforme pour l'inférence locale de LLM (llama.cpp/Metal/CUDA). Mesure des GFLOPS, bande passante mémoire, latence token-to-token et impact des quantifications.",
+    link: "https://github.com/Romaindujardin/ComputeLLM",
+    tags: ["LLM Inference", "llama.cpp", "Hardware Benchmark", "CUDA / Metal", "Python"],
+  },
+  {
+    id: "3",
     title: "I-LLM",
     description:
       "Chatbot d'accessibilité (Streamlit) facilitant la recherche d'ERP et parkings PMR. RAG combinant Gemini, un modèle NLP DistilCamembert fine-tuné et l'API AccesLibre.",
@@ -47,16 +56,51 @@ const PROJECTS: ProjectItem[] = [
     tags: ["Python", "Gemini API", "RAG / NLP", "Streamlit"],
   },
   {
-    id: "3",
-    title: "DriveMe",
+    id: "4",
+    title: "Enhance-This",
     description:
-      "Plateforme web de stockage cloud type Google Drive développée avec Django. Gestion de fichiers/dossiers, prévisualisation, quotas de stockage et authentification Google OAuth.",
-    image: "./img/DriveMe.gif",
-    link: "https://github.com/Romaindujardin/DriveMe",
-    tags: ["Django", "Python", "SQLite", "Google OAuth"],
+      "Modèle de super-résolution d'images par réseaux antagonistes génératifs (SRGAN). Architecture PyTorch avec phase de warmup, loss perceptuelle VGG et optimisation du compromis PSNR / textures.",
+    image: "./img/srgan_result.png",
+    link: "https://github.com/Romaindujardin/Enhance-This",
+    tags: ["Deep Learning", "PyTorch", "SRGAN", "Computer Vision", "Perceptual Loss"],
   },
   {
-    id: "4",
+    id: "5",
+    title: "Reinforcement-Learning-Example",
+    description:
+      "Suite d'environnements d'apprentissage par renforcement (Gymnasium & Unity ML-Agents). Entraînement d'agents autonomes (PPO, DQN) sur jeux de course 2D, labyrinthes et Snake 3D.",
+    images: [
+      "./img/rl_racer1.gif",
+      "./img/rl_maze1.gif",
+      "./img/rl_snake.gif",
+      "./img/rl_racer2.gif",
+      "./img/rl_maze2.gif",
+      "./img/rl_racer3.gif",
+    ],
+    link: "https://github.com/Romaindujardin/Reinforcement-Learning-Example",
+    tags: ["Reinforcement Learning", "Gymnasium", "Stable-Baselines3", "Unity ML-Agents", "PPO / DQN"],
+  },
+  {
+    id: "6",
+    title: "Fridge-pro",
+    description:
+      "Application full-stack de gestion intelligente de frigo et anti-gaspillage. Suivi des péremptions, suggestions et génération de recettes IA adaptées aux ingrédients, et listes de courses.",
+    image: "./img/projet_en_cours.svg",
+    link: "https://github.com/Romaindujardin/Fridge-pro",
+    tags: ["React / TypeScript", "Node.js", "Prisma / PostgreSQL", "Terraform / Azure", "Gemini AI"],
+  },
+  {
+    id: "7",
+    title: "Projet SPOT",
+    description:
+      "Système de vision par ordinateur pour l'émargement automatique en temps réel. Pipeline OpenCV complète : détection Haar Cascade, prétraitement CLAHE, modèle LBPH et calibration live.",
+    image: "./img/SPOT.mp4",
+    link: "https://github.com/Romaindujardin/SPOT",
+    isVideo: true,
+    tags: ["Computer Vision", "OpenCV", "LBPH", "CLAHE", "Python"],
+  },
+  {
+    id: "8",
     title: "romAIn",
     description:
       "Assistant IA personnel et multimodal (voix/texte) bilingue FR/EN. Architecture RAG sur FAISS avec Whisper (ASR), Mistral-7B et synthèse vocale MMS-TTS sous Streamlit.",
@@ -65,13 +109,62 @@ const PROJECTS: ProjectItem[] = [
     tags: ["RAG Multimodal", "Mistral AI", "Whisper", "FAISS", "Python"],
   },
   {
-    id: "5",
-    title: "Projet SPOT",
+    id: "9",
+    title: "Portfolio-Dashboard",
     description:
-      "Système de vision par ordinateur pour l'émargement automatique en temps réel. Pipeline OpenCV complète : détection Haar Cascade, prétraitement CLAHE, modèle LBPH et calibration live.",
-    image: "./img/SPOT.mp4",
-    link: "https://github.com/Romaindujardin/SPOT",
-    tags: ["Computer Vision", "OpenCV", "LBPH", "CLAHE", "Python"],
+      "Dashboard de gestion de patrimoine et suivi d'actifs en temps réel (banque bourso-cli, PEA/PEE, crypto & bourse). Projections financières à long terme et conseils d'arbitrage via IA.",
+    image: "./img/projet_en_cours.svg",
+    link: "https://github.com/Romaindujardin/Portfolio-Dashboard",
+    tags: ["React / TypeScript", "Bourso CLI", "SQLite", "Yahoo Finance", "Gemini AI"],
+  },
+  {
+    id: "10",
+    title: "MUSEUM-VR",
+    description:
+      "Expérience immersive de musée en réalité virtuelle sous Unity (C#). Réinvention de la visite avec traversée de toiles 2D vers des espaces 3D interactifs et tableaux générés par IA.",
+    images: [
+      "./img/vr_portal.gif",
+      "./img/vr_puzzle.gif",
+      "./img/vr_ai1.gif",
+    ],
+    link: "https://github.com/Romaindujardin/MUSEUM-VR",
+    tags: ["Unity VR", "XR Toolkit", "3D Interactif", "Stable Diffusion", "C#"],
+  },
+  {
+    id: "11",
+    title: "Project F.R.A.N.K",
+    description:
+      "Jeu FPS 3D d'horreur et d'énigmes sous Unity (C#). Intègre un système d'inventaire et une IA ennemie adaptative (NavMesh) traquant le joueur selon ses déplacements.",
+    image: "./img/ProjectFRANK.mp4",
+    link: "https://github.com/Project-Group-3D/Project-F.R.A.N.K",
+    isVideo: true,
+    tags: ["Unity 3D", "C#", "NavMesh", "IA Ennemie"],
+  },
+  {
+    id: "12",
+    title: "NLP-Classification",
+    description:
+      "Pipeline NLP de classification multi-label de commentaires toxiques (Kaggle). Évolution d'une baseline TF-IDF vers une architecture Deep Learning Bi-LSTM sous TensorFlow (F1 micro: 0.96).",
+    link: "https://github.com/Romaindujardin/NLP-Classification",
+    tags: ["Deep Learning", "TensorFlow", "Bi-LSTM", "NLP", "Kaggle"],
+  },
+  {
+    id: "13",
+    title: "DriveMe",
+    description:
+      "Plateforme web de stockage cloud type Google Drive développée avec Django. Gestion de fichiers/dossiers, prévisualisation, quotas de stockage et authentification Google OAuth.",
+    image: "./img/DriveMe.gif",
+    link: "https://github.com/Romaindujardin/DriveMe",
+    tags: ["Django", "Python", "SQLite", "Google OAuth"],
+  },
+  {
+    id: "14",
+    title: "Leboncoin-finder",
+    description:
+      "Outil CLI de veille continue et scraping multi-villes sur LeBonCoin. Filtrage avancé (mots exclus/favoris), dédoublonnage intelligent et extraction structurée en temps réel.",
+    image: "./img/leboncoin_terminal.svg",
+    link: "https://github.com/Romaindujardin/Leboncoin-finder",
+    tags: ["Python", "Web Scraping", "CLI Tool", "Data Pipeline", "Monitoring"],
   },
 ];
 
@@ -143,6 +236,42 @@ const WebcamFeed: React.FC = () => {
       muted
       className="rdWebcamVideo"
     />
+  );
+};
+
+// Composant Slideshow pour faire défiler plusieurs GIFs / images en boucle
+const MediaSlideshow: React.FC<{ images: string[]; alt: string }> = ({ images, alt }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (!images || images.length <= 1) return;
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 2800);
+
+    return () => clearInterval(interval);
+  }, [images]);
+
+  return (
+    <div className="rdWheelCardSlideshow">
+      {images.map((img, idx) => (
+        <img
+          key={img}
+          src={img}
+          alt={`${alt} ${idx + 1}`}
+          loading="lazy"
+          className={`rdWheelCardSlide ${idx === currentIndex ? "rdWheelCardSlideActive" : ""}`}
+        />
+      ))}
+      <div className="rdWheelCardSlideDots">
+        {images.map((_, idx) => (
+          <span
+            key={idx}
+            className={`rdWheelCardSlideDot ${idx === currentIndex ? "rdWheelCardSlideDotActive" : ""}`}
+          />
+        ))}
+      </div>
+    </div>
   );
 };
 
@@ -223,9 +352,11 @@ const WheelGallery: React.FC = () => {
         }
       }}
     >
-      <div className={`rdWheelCardMedia ${project.centerImage ? "rdWheelCardMediaCenter" : ""} ${!project.image && !project.isWebcam ? "rdWheelCardMediaEmpty" : ""}`}>
+      <div className={`rdWheelCardMedia ${project.centerImage ? "rdWheelCardMediaCenter" : ""} ${!project.image && !project.images && !project.isWebcam ? "rdWheelCardMediaEmpty" : ""}`}>
         {project.isWebcam ? (
           <WebcamFeed />
+        ) : project.images && project.images.length > 0 ? (
+          <MediaSlideshow images={project.images} alt={project.title} />
         ) : project.image ? (
           project.isVideo ? (
             <video
