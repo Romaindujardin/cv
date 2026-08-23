@@ -30,48 +30,48 @@ const PROJECTS: ProjectItem[] = [
     id: "1",
     title: "Project F.R.A.N.K",
     description:
-      "Projet 3D d'un jeu d'horreur développé sous Unity, avec un système d'IA pour le monstre qui traque activement le joueur.",
+      "Jeu FPS 3D d'horreur et d'énigmes sous Unity (C#). Intègre un système d'inventaire et une IA ennemie adaptative (NavMesh) traquant le joueur selon ses déplacements.",
     image: "./img/ProjectFRANK.mp4",
     link: "https://github.com/Project-Group-3D/Project-F.R.A.N.K",
     isVideo: true,
-    tags: ["Unity", "3D", "IA", "Jeu"],
+    tags: ["Unity 3D", "C#", "NavMesh", "IA Ennemie"],
   },
   {
     id: "2",
     title: "I-LLM",
     description:
-      "Développement d'un LLM inclusif permettant de répondre à des besoins plus précis et en temps réel.",
+      "Chatbot d'accessibilité (Streamlit) facilitant la recherche d'ERP et parkings PMR. RAG combinant Gemini, un modèle NLP DistilCamembert fine-tuné et l'API AccesLibre.",
     image: "./img/I-LLM.png",
     link: "https://github.com/Project-Group-AI/I-LLM",
     centerImage: true,
-    tags: ["LLM", "IA", "Temps réel"],
+    tags: ["Python", "Gemini API", "RAG / NLP", "Streamlit"],
   },
   {
     id: "3",
     title: "DriveMe",
     description:
-      "Système de drive local complet sous Django avec base de données, gestion de comptes et d'espace fichiers.",
+      "Plateforme web de stockage cloud type Google Drive développée avec Django. Gestion de fichiers/dossiers, prévisualisation, quotas de stockage et authentification Google OAuth.",
     image: "./img/DriveMe.gif",
     link: "https://github.com/Romaindujardin/DriveMe",
-    tags: ["Django", "Python", "Base de données"],
+    tags: ["Django", "Python", "SQLite", "Google OAuth"],
   },
   {
     id: "4",
     title: "romAIn",
     description:
-      "Chatbot personnalisé capable de répondre à des questions professionnelles comme si c'était moi.",
+      "Assistant IA personnel et multimodal (voix/texte) bilingue FR/EN. Architecture RAG sur FAISS avec Whisper (ASR), Mistral-7B et synthèse vocale MMS-TTS sous Streamlit.",
     image: "./img/romainchatbot.png",
     link: "https://github.com/Romaindujardin/romAIn",
-    tags: ["Chatbot", "IA", "NLP"],
+    tags: ["RAG Multimodal", "Mistral AI", "Whisper", "FAISS", "Python"],
   },
   {
     id: "5",
     title: "Projet SPOT",
     description:
-      "Projet de reconnaissance et d'analyse faciale pour automatiser l'appel en cours.",
+      "Système de vision par ordinateur pour l'émargement automatique en temps réel. Pipeline OpenCV complète : détection Haar Cascade, prétraitement CLAHE, modèle LBPH et calibration live.",
     image: "./img/SPOT.mp4",
     link: "https://github.com/Romaindujardin/SPOT",
-    tags: ["Reconnaissance faciale", "IA", "Automatisation"],
+    tags: ["Computer Vision", "OpenCV", "LBPH", "CLAHE", "Python"],
   },
 ];
 
