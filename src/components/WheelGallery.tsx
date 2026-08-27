@@ -12,6 +12,7 @@ interface ProjectItem {
   centerImage?: boolean;
   isWebcam?: boolean;
   tags?: string[];
+  mediaBg?: string;
 }
 
 // Projet vedette affiché en haut (fixe) - avec webcam pour le jeu
@@ -42,6 +43,8 @@ const PROJECTS: ProjectItem[] = [
     title: "ComputeLLM",
     description:
       "Suite de benchmark multiplateforme pour l'inférence locale de LLM (llama.cpp/Metal/CUDA). Mesure des GFLOPS, bande passante mémoire, latence token-to-token et impact des quantifications.",
+    image: "./img/computellm.png",
+    mediaBg: "#2f323a",
     link: "https://github.com/Romaindujardin/ComputeLLM",
     tags: ["LLM Inference", "llama.cpp", "Hardware Benchmark", "CUDA / Metal", "Python"],
   },
@@ -145,6 +148,8 @@ const PROJECTS: ProjectItem[] = [
     title: "NLP-Classification",
     description:
       "Pipeline NLP de classification multi-label de commentaires toxiques (Kaggle). Évolution d'une baseline TF-IDF vers une architecture Deep Learning Bi-LSTM sous TensorFlow (F1 micro: 0.96).",
+    image: "./img/nlp_bilstm_architecture.png",
+    centerImage: true,
     link: "https://github.com/Romaindujardin/NLP-Classification",
     tags: ["Deep Learning", "TensorFlow", "Bi-LSTM", "NLP", "Kaggle"],
   },
@@ -352,7 +357,10 @@ const WheelGallery: React.FC = () => {
         }
       }}
     >
-      <div className={`rdWheelCardMedia ${project.centerImage ? "rdWheelCardMediaCenter" : ""} ${!project.image && !project.images && !project.isWebcam ? "rdWheelCardMediaEmpty" : ""}`}>
+      <div
+        className={`rdWheelCardMedia ${project.centerImage ? "rdWheelCardMediaCenter" : ""} ${!project.image && !project.images && !project.isWebcam ? "rdWheelCardMediaEmpty" : ""}`}
+        style={project.mediaBg ? { backgroundColor: project.mediaBg } : undefined}
+      >
         {project.isWebcam ? (
           <WebcamFeed />
         ) : project.images && project.images.length > 0 ? (
