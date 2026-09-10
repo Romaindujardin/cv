@@ -26,7 +26,7 @@ const timelineData: TimelineItem[] = [
   {
     id: "3",
     title: "Etudiant chercheur - UQAR",
-    period: "Mai 2025 - Août 2025",
+    period: "Mai 2025 - Juillet 2025",
     description:
       "Conception d’une plateforme agentique dédiée à l’usage de l’IA dans l’enseignement, intégrant RAG, génération d’exercices et suivi pédagogique. Développement d’une architecture sécurisée et conteneurisée avec FastAPI, Next.js, PostgreSQL, ChromaDB, JWT, Apptainer et Ollama.",
   },
