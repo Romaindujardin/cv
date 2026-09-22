@@ -14,7 +14,7 @@ const timelineData: TimelineItem[] = [
     title: "Junia - ISEN",
     period: "2020 - 2026",
     description:
-      "Formation d’ingénieur spécialisée en Intelligence Artificielle, avec une expertise en Deep Learning, Computer Vision, Machine Learning et IA générative. Projets autour des LLM, RAG, systèmes agentiques et Reinforcement Learning.",
+      "Diplome d’ingénieur spécialisée en Intelligence Artificielle, avec une expertise en Deep Learning, Computer Vision, Machine Learning et IA générative. Projets autour des LLM, RAG, systèmes agentiques et Reinforcement Learning.",
   },
   {
     id: "2",
