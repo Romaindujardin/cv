@@ -4,3 +4,6 @@
 # Éditeurs
 *.swp
 *~
+
+# Dossier produit par le workflow de publication
+_site/
